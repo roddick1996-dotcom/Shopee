@@ -19,252 +19,190 @@
   --re:#E74C3C;--re-d:rgba(231,76,60,.12);
   --ye:#f0c040;--ye-d:rgba(240,192,64,.12);
   --bl:#3B82F6;--bl-d:rgba(59,130,246,.12);
+  --pu:#8B5CF6;--pu-d:rgba(139,92,246,.12);
   --s1:#1a1a24;--s2:#22222f;--s3:#2a2a3a;
   --bd:rgba(255,255,255,.08);--mu:#7a7a9d;
   --mono:'DM Mono',monospace;
 }
 body{background:#0f0f14;font-family:'Noto Sans TC',sans-serif;color:#e8e4f0;min-height:100vh;padding-bottom:60px}
-input,select,button,textarea{font-family:inherit}
+input,select,button{font-family:inherit}
 input,select{background:#0f0f14;border:1.5px solid var(--bd);color:#e8e4f0;border-radius:8px;padding:9px 12px;font-size:14px;outline:none;width:100%;transition:border .2s;-webkit-appearance:none}
 input:focus,select:focus{border-color:var(--or)}
+input[readonly]{background:var(--s2);color:var(--or);border-color:var(--bd)}
 input::placeholder{color:#3a3a5a}
-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7a9d' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
 button{cursor:pointer}
 .btn{border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;transition:all .2s;display:inline-flex;align-items:center;gap:6px;justify-content:center;white-space:nowrap}
 .btn-or{background:var(--or);color:white}.btn-or:active{background:#d95a1e;transform:scale(.97)}
 .btn-gh{background:transparent;border:1.5px solid var(--bd);color:var(--mu)}.btn-gh:active{border-color:var(--or);color:var(--or)}
-.btn-re{background:var(--re-d);color:var(--re);border:none}
+.btn-re{background:var(--re-d);color:var(--re);border:1px solid var(--re-d)}
+.btn-gr{background:var(--gr-d);color:var(--gr);border:none}
 .btn-sm{padding:7px 13px;font-size:13px}.btn-xs{padding:5px 10px;font-size:12px}
 .card{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:18px}
 .lbl{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--mu);text-transform:uppercase;margin-bottom:6px;display:block}
 .mono{font-family:var(--mono)}
 .pos{color:var(--gr)}.neg{color:var(--re)}
-.pill{display:inline-flex;align-items:center;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;font-family:var(--mono)}
-.divider{border:none;border-top:1px solid var(--bd);margin:14px 0}
+.divider{border:none;border-top:1px solid var(--bd);margin:12px 0}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-
-/* Nav */
-#nav-bar{background:#0f0f14;border-bottom:1px solid var(–bd);padding:0;position:sticky;top:0;z-index:100}
-#nav-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;height:54px;padding:0 16px;gap:6px}
-.logo{width:30px;height:30px;background:var(–or);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.nav-btn{background:none;border:none;padding:6px 11px;border-radius:8px;font-size:12px;font-weight:700;color:var(–mu);transition:all .2s;display:flex;align-items:center;gap:4px}
-.nav-btn.on{background:var(–or);color:white}
-
-#main{max-width:760px;margin:0 auto;padding:20px 16px}
+#nav-bar{background:#0f0f14;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100}
+#nav-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;height:54px;padding:0 16px;gap:4px}
+.logo{width:30px;height:30px;background:var(--or);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.nav-btn{background:none;border:none;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:700;color:var(--mu);transition:all .2s;display:flex;align-items:center;gap:3px}
+.nav-btn.on{background:var(--or);color:white}
+#main{max-width:800px;margin:0 auto;padding:20px 16px}
 .sec-title{font-weight:900;font-size:17px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-
-/* Product cards */
-.prod-group{background:var(–s1);border:1px solid var(–bd);border-radius:14px;overflow:hidden;margin-bottom:10px}
-.prod-group-header{padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.prod-group-header:active{background:rgba(255,107,53,.05)}
-.prod-variants{padding:0 16px 14px;display:none}
-.prod-variants.open{display:block}
-.variant-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(–bd)}
-.variant-badge{font-family:var(–mono);font-size:10px;color:var(–mu);background:var(–s3);padding:2px 7px;border-radius:5px;flex-shrink:0}
-
-/* Mode toggle */
-.mode-toggle{display:flex;background:var(–s2);border-radius:12px;padding:4px;gap:4px;margin-bottom:16px}
-.mode-btn{flex:1;border:none;border-radius:9px;padding:9px;font-size:13px;font-weight:700;color:var(–mu);background:none;transition:all .2s}
-.mode-btn.on{background:var(–or);color:white}
-
-/* Result box */
-.result-box{background:var(–s3);border:1px solid var(–bd);border-radius:12px;padding:14px;margin-top:14px}
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(–bd);font-size:13px}
-.result-row:last-child{border-bottom:none}
-.result-row.total{font-weight:800;font-size:15px;padding-top:10px;margin-top:4px}
-
-#rate-badge{display:none;background:var(–or-d);border:1px solid var(–or-b);border-radius:8px;padding:8px 14px;font-family:var(–mono);font-size:13px;color:var(–or);margin-top:8px}
-
-/* Upload */
-.upload-zone{border:2px dashed var(–bd);border-radius:14px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
-.upload-zone:hover{border-color:var(–or);background:var(–or-d)}
+.prod-group{background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:10px}
+.prod-group-hdr{padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.prod-group-hdr:active{background:rgba(255,107,53,.05)}
+.prod-body{display:none;padding:0 16px 14px}
+.prod-body.open{display:block}
+.spec-item{display:flex;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--bd)}
+.vbadge{font-family:var(--mono);font-size:10px;color:var(--mu);background:var(--s3);padding:2px 7px;border-radius:5px}
+.tag{display:inline-flex;align-items:center;border-radius:6px;padding:3px 8px;font-size:11px;font-weight:700}
+.mode-toggle{display:flex;background:var(--s2);border-radius:12px;padding:4px;gap:4px;margin-bottom:16px}
+.mode-btn{flex:1;border:none;border-radius:9px;padding:9px;font-size:13px;font-weight:700;color:var(--mu);background:none;transition:all .2s}
+.mode-btn.on{background:var(--or);color:white}
+.prod-block{background:var(--s1);border:1.5px solid var(--or-b);border-radius:16px;padding:16px;margin-bottom:16px}
+.spec-card{background:var(--s2);border:1.5px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px;transition:border .2s}
+.spec-card:hover{border-color:var(--or-b)}
+.spec-result{background:var(--s3);border-radius:10px;padding:13px;margin-top:12px;display:none}
+.spec-result.show{display:block}
+.rr{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13px}
+.rr .rl{color:var(--mu);font-size:12px}
+.rr .rv{font-family:var(--mono)}
+.rr.hl .rv{color:var(--or);font-weight:800;font-size:14px}
+.rr.gn .rv{color:var(--gr);font-weight:700}
+.rr.rd .rv{color:var(--re);font-weight:700}
+.rr.sg .rv{color:var(--pu);font-weight:800;font-size:14px}
+.hint{font-size:11px;color:var(--or);font-family:var(--mono);margin-top:3px;min-height:14px}
+.batch-sum{background:var(--s2);border:1.5px solid var(--or-b);border-radius:12px;padding:16px;margin-bottom:14px;display:none}
+.batch-sum.show{display:block}
+.upload-zone{border:2px dashed var(--bd);border-radius:14px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.upload-zone:hover{border-color:var(--or);background:var(--or-d)}
 .upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-
-/* Report table */
-.report-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px}
+.rpt-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;font-size:12px}
-th{color:var(–mu);font-size:10px;font-weight:700;padding:8px;text-align:right;white-space:nowrap;background:var(–s2);border-bottom:1px solid var(–bd)}
+th{color:var(--mu);font-size:10px;font-weight:700;padding:8px;text-align:right;white-space:nowrap;background:var(--s2);border-bottom:1px solid var(--bd)}
 th:first-child{text-align:left;padding-left:14px}
-td{padding:9px 8px;text-align:right;border-bottom:1px solid var(–bd)}
+td{padding:9px 8px;text-align:right;border-bottom:1px solid var(--bd)}
 td:first-child{text-align:left;padding-left:14px}
 tr:hover td{background:rgba(255,255,255,.02)}
-
-.sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
-.sum-card{background:var(–s2);border:1px solid var(–bd);border-radius:12px;padding:14px}
-.sum-card .val{font-size:19px;font-weight:800;font-family:var(–mono);margin-top:6px}
-
-/* Modal */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
+.sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:16px}
+.sum-card{background:var(--s2);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.sum-card .val{font-size:17px;font-weight:800;font-family:var(--mono);margin-top:6px}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
 .modal-bg.show{display:flex}
-.modal{background:var(–s1);border:1px solid var(–bd);border-radius:20px;padding:24px;width:min(500px,100%);max-height:92vh;overflow-y:auto}
-
-/* Batch history */
-.bcard{background:var(–s2);border:1px solid var(–bd);border-radius:12px;overflow:hidden;margin-bottom:8px}
+.modal{background:var(--s1);border:1px solid var(--bd);border-radius:20px;padding:24px;width:min(560px,100%);max-height:92vh;overflow-y:auto}
+.mv-row{background:var(--s2);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px}
+.mv-result{font-size:12px;color:var(--mu);margin-top:8px;padding:8px 10px;background:var(--s3);border-radius:8px;display:none;line-height:1.8}
+.mv-result.show{display:block}
+.bcard{background:var(--s2);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:8px}
 .bhdr{padding:13px 16px;display:flex;align-items:center;gap:10px;cursor:pointer}
 .bhdr:active{background:rgba(255,107,53,.05)}
 .bdetail{display:none;padding:0 16px 14px}
 .bdetail.open{display:block}
-
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);padding:12px 22px;border-radius:50px;font-size:13px;font-weight:600;z-index:999;opacity:0;transition:all .3s;white-space:nowrap;color:white;pointer-events:none}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-#install-banner{display:none;background:linear-gradient(135deg,rgba(255,107,53,.2),rgba(255,107,53,.05));border:1px solid var(–or-b);border-radius:14px;padding:12px 16px;margin-bottom:16px;align-items:center;gap:12px}
-#install-banner.show{display:flex}
-
-.tag{display:inline-flex;align-items:center;border-radius:6px;padding:3px 8px;font-size:11px;font-weight:700}
-.help-text{font-size:12px;color:var(–mu);line-height:1.7;margin-top:6px}
-
-@media(max-width:480px){.g3{grid-template-columns:1fr 1fr}.nav-btn span{display:none}}
+#inst-banner{display:none;background:linear-gradient(135deg,rgba(255,107,53,.2),rgba(255,107,53,.05));border:1px solid var(--or-b);border-radius:14px;padding:12px 16px;margin-bottom:16px;align-items:center;gap:12px}
+#inst-banner.show{display:flex}
+.help{font-size:11px;color:var(--mu);margin-top:4px;line-height:1.5}
+@media(max-width:500px){.g3{grid-template-columns:1fr 1fr}.nav-btn span{display:none}}
 </style>
-
 </head>
 <body>
 
 <div id="nav-bar">
   <div id="nav-inner">
     <div class="logo">🛍️</div>
-    <div style="font-weight:900;font-size:13px;margin-right:2px;flex-shrink:0">蝦皮管理</div>
+    <div style="font-weight:900;font-size:12px;flex-shrink:0;margin-right:2px">蝦皮管理</div>
     <div style="flex:1"></div>
-    <button class="nav-btn on" onclick="switchTab('products')">📦 <span>商品庫</span></button>
-    <button class="nav-btn" onclick="switchTab('calc')">🧮 <span>計算</span></button>
-    <button class="nav-btn" onclick="switchTab('report')">📊 <span>月報表</span></button>
-    <button class="nav-btn" onclick="switchTab('history')">🗂 <span>記錄</span></button>
+    <button class="nav-btn on" onclick="goTab('products')">📦 <span>商品庫</span></button>
+    <button class="nav-btn" onclick="goTab('calc')">🧮 <span>計算</span></button>
+    <button class="nav-btn" onclick="goTab('report')">📊 <span>月報表</span></button>
+    <button class="nav-btn" onclick="goTab('history')">🗂 <span>記錄</span></button>
+    <button class="nav-btn" onclick="goTab('settings')">⚙️ <span>設定</span></button>
   </div>
 </div>
 
 <div id="main">
-
-  <div id="install-banner">
+  <div id="inst-banner">
     <div style="font-size:22px">📲</div>
-    <div style="flex:1"><div style="font-weight:700;font-size:13px">加入主畫面當 App 使用</div><div style="font-size:11px;color:var(--mu)">Safari → 分享 → 加入主畫面</div></div>
+    <div style="flex:1"><div style="font-weight:700;font-size:13px">加入主畫面當 App</div><div style="font-size:11px;color:var(--mu)">Safari 分享 → 加入主畫面</div></div>
     <button class="btn btn-xs btn-gh" onclick="this.parentElement.style.display='none'">✕</button>
   </div>
 
-  <!-- ===== 商品資料庫 ===== -->
+  <!-- 商品庫 -->
 
   <div id="tab-products">
     <div class="sec-title">📦 商品資料庫
-      <button class="btn btn-or btn-sm" style="margin-left:auto" onclick="openProdModal()">＋ 新增</button>
+      <button class="btn btn-or btn-sm" style="margin-left:auto" onclick="openProdModal(0)">＋ 新增商品</button>
     </div>
-
-```
-<div style="background:var(--bl-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px;color:#93c5fd;line-height:1.8">
-  💡 <strong>對應邏輯：</strong>每個商品規格（尺寸）獨立設定成本。<br>
-  匯入報表時用 <strong>AC欄的「商品ID_規格ID」</strong> 精準對應，同商品不同尺寸可設不同成本，同尺寸不同顏色自動共用同一成本。
-</div>
-
-<div style="margin-bottom:12px">
-  <input type="text" id="prod-search" placeholder="搜尋商品名稱或ID…" oninput="renderProducts()">
-</div>
-<div id="products-list"></div>
-<div id="products-empty" style="display:none;text-align:center;padding:40px 20px;color:var(--mu)">
-  <div style="font-size:36px;margin-bottom:10px">📭</div>
-  <div style="font-weight:700">還沒有商品</div>
-  <div style="font-size:12px;margin-top:4px">點右上角「新增」開始建立</div>
-</div>
-```
-
+    <div style="background:var(--bl-d);border:1px solid rgba(59,130,246,.25);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px;color:#93c5fd;line-height:1.8">
+      新增商品時可同時建立多個規格，每個規格獨立設定成本。月報表用 AC欄規格ID 自動對應。
+    </div>
+    <input type="text" id="prod-search" placeholder="搜尋商品名稱或規格ID…" oninput="renderProds()" style="margin-bottom:12px">
+    <div id="prod-list"></div>
+    <div id="prod-empty" style="display:none;text-align:center;padding:40px 20px;color:var(--mu)">
+      <div style="font-size:36px;margin-bottom:10px">📭</div>
+      <div style="font-weight:700">還沒有商品</div>
+    </div>
   </div>
 
-  <!-- ===== 計算機 ===== -->
+  <!-- 計算機 -->
 
   <div id="tab-calc" style="display:none">
     <div class="sec-title">🧮 進貨成本計算機</div>
-    <div id="formula-bar" style="background:var(--s2);border:1px dashed var(--bd);border-radius:10px;padding:10px 14px;font-size:11px;color:var(--mu);margin-bottom:16px;line-height:2"></div>
+    <div class="mode-toggle">
+      <button class="mode-btn on" id="m-batch" onclick="goMode('batch')">📦 整批進貨</button>
+      <button class="mode-btn" id="m-unit" onclick="goMode('unit')">🔍 單品計算</button>
+    </div>
 
 ```
-<div class="mode-toggle">
-  <button class="mode-btn on" id="mode-batch-btn" onclick="switchCalcMode('batch')">📦 整批進貨</button>
-  <button class="mode-btn" id="mode-unit-btn" onclick="switchCalcMode('unit')">🔍 單品計算</button>
-</div>
-
 <!-- 匯率 -->
 <div class="card" style="margin-bottom:16px">
   <div class="g2" style="align-items:end">
-    <div><span class="lbl">批次名稱（選填）</span><input type="text" id="batch-name" placeholder="例：1月第一批"></div>
+    <div><span class="lbl">批次名稱</span><input type="text" id="batch-name" placeholder="例：1月第一批"></div>
     <div>
-      <span class="lbl">💱 人民幣兌台幣匯率</span>
+      <span class="lbl">人民幣兌台幣匯率</span>
       <div style="display:flex;gap:8px">
-        <input type="number" id="rate-input" placeholder="例：4.42" step="0.01" oninput="onRateChange()" class="mono">
+        <input type="number" id="rate" placeholder="例：4.42" step="0.01" oninput="onRate()" class="mono">
         <button class="btn btn-gh btn-sm" onclick="fetchRate()" id="fetch-btn">🌐</button>
       </div>
     </div>
   </div>
-  <div id="rate-badge"></div>
+  <div id="rate-badge" style="display:none;background:var(--or-d);border:1px solid var(--or-b);border-radius:8px;padding:8px 14px;font-family:var(--mono);font-size:13px;color:var(--or);margin-top:8px"></div>
 </div>
 
 <!-- 整批 -->
 <div id="calc-batch">
-  <div class="card" style="margin-bottom:14px">
-    <div style="font-weight:700;font-size:14px;margin-bottom:14px">📋 整批進貨資訊</div>
-    <div class="g2" style="margin-bottom:10px">
-      <div><span class="lbl">商品名稱</span><input type="text" id="b-name" placeholder="例：貓抓板-大片" oninput="calcBatch()"></div>
-      <div>
-        <span class="lbl">蝦皮商品ID_規格ID <span style="color:var(--mu);font-weight:400">（AC欄）</span></span>
-        <input type="text" id="b-variant-key" placeholder="例：829585737_1444341581" class="mono" oninput="calcBatch()">
-        <div class="help-text">格式：商品ID_規格ID，從報表AC欄複製</div>
-      </div>
-    </div>
-    <div class="g3" style="margin-bottom:10px">
-      <div><span class="lbl">每箱數量</span><input type="number" id="b-per-box" placeholder="例：50" min="1" class="mono" oninput="calcBatchQty()"></div>
-      <div><span class="lbl">箱數</span><input type="number" id="b-boxes" placeholder="例：4" min="1" class="mono" oninput="calcBatchQty()"></div>
-      <div><span class="lbl">總數量（自動）</span><input type="number" id="b-qty" placeholder="—" class="mono" oninput="calcBatch()"></div>
-    </div>
-    <div class="g3" style="margin-bottom:10px">
-      <div><span class="lbl">總重量（kg）</span><input type="number" id="b-weight" placeholder="0" step="0.1" class="mono" oninput="calcBatch()"></div>
-      <div><span class="lbl">總金額（人民幣¥）</span><input type="number" id="b-rmb" placeholder="0" step="0.01" class="mono" oninput="calcBatch()"></div>
-      <div><span class="lbl">蝦皮售價（NT$）</span><input type="number" id="b-sell" placeholder="選填" class="mono" oninput="calcBatch()"></div>
-    </div>
-
-    <div id="batch-result" style="display:none" class="result-box">
-      <div style="font-size:11px;color:var(--mu);font-weight:700;letter-spacing:.05em;margin-bottom:10px">📊 每件成本分析</div>
-      <div class="result-row"><span style="color:var(--mu)">單件進貨成本</span><span class="mono" id="br-cost">—</span></div>
-      <div class="result-row"><span style="color:var(--mu)">單件運費</span><span class="mono" id="br-ship">—</span></div>
-      <div id="br-fee-row" class="result-row" style="display:none">
-        <span style="color:var(--mu)">手續費 <span style="color:var(--ye)">(14.5%)</span></span>
-        <span class="mono" style="color:var(--ye)" id="br-fee">—</span>
-      </div>
-      <div class="result-row total"><span>單件總成本</span><span class="mono" id="br-total" style="color:var(--or)">—</span></div>
-      <div id="br-profit-sec" style="display:none">
-        <div class="divider"></div>
-        <div class="result-row"><span style="color:var(--mu)">單件利潤</span><span class="mono" id="br-profit">—</span></div>
-        <div class="result-row"><span style="color:var(--mu)">利潤率</span><span class="mono" id="br-margin">—</span></div>
-        <div class="result-row"><span style="color:var(--mu)">整批預估總利潤</span><span class="mono" id="br-total-profit">—</span></div>
-      </div>
-      <div class="divider"></div>
-      <div class="result-row"><span style="color:var(--mu)">總進貨成本（台幣）</span><span class="mono" id="br-total-twd">—</span></div>
-      <div id="br-box-info" class="result-row" style="display:none">
-        <span style="color:var(--mu)">箱數 × 每箱</span><span class="mono" id="br-per-box">—</span>
-      </div>
-      <!-- 儲存到商品庫提示 -->
-      <div id="br-save-hint" style="display:none;margin-top:12px;padding:10px 12px;background:var(--or-d);border-radius:8px;font-size:12px;color:var(--or)">
-        💡 計算完成後可按下方「同步至商品庫」，將此規格的單件成本自動儲存
-      </div>
-    </div>
+  <div style="background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--mu);margin-bottom:14px;line-height:1.8">
+    一批可包含多個商品，每個商品下可新增多個規格。每規格填：整箱重量、每箱件數、箱數、人民幣成本。
   </div>
+  <div id="prod-batch-list"></div>
+  <button class="btn btn-gh" style="width:100%;margin-bottom:14px" onclick="addProd()">＋ 新增商品</button>
+  <div class="batch-sum" id="batch-sum"></div>
   <div style="display:flex;gap:10px;flex-wrap:wrap">
     <button class="btn btn-gh" style="flex:1;min-width:80px" onclick="clearBatch()">清除</button>
-    <button class="btn btn-gh btn-sm" id="sync-to-db-btn" style="display:none" onclick="syncBatchToDB()">📦 同步至商品庫</button>
-    <button class="btn btn-or" style="flex:2;min-width:120px" onclick="saveCalcRecord('batch')">💾 儲存批次</button>
+    <button class="btn btn-gr btn-sm" id="sync-btn" style="display:none" onclick="syncDB()">📦 同步商品庫</button>
+    <button class="btn btn-or" style="flex:2;min-width:120px" onclick="saveRec('batch')">💾 儲存批次</button>
   </div>
 </div>
 
 <!-- 單品 -->
 <div id="calc-unit" style="display:none">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-    <span style="font-weight:700;font-size:14px">📦 商品清單</span>
-    <button class="btn btn-gh btn-sm" onclick="addUnitItem()">＋ 新增</button>
+    <span style="font-weight:700;font-size:14px">商品清單</span>
+    <button class="btn btn-gh btn-sm" onclick="addUnit()">＋ 新增</button>
   </div>
-  <div id="unit-items"></div>
-  <div id="unit-summary" style="display:none">
+  <div id="unit-list"></div>
+  <div id="unit-sum" style="display:none">
     <div class="card" style="margin-bottom:14px;display:flex;gap:20px;flex-wrap:wrap;align-items:center">
-      <div><div class="lbl">總成本</div><div class="mono" id="u-sum-cost" style="font-size:20px;font-weight:800">NT$0</div></div>
-      <div><div class="lbl">預估總利潤</div><div class="mono" id="u-sum-profit" style="font-size:20px;font-weight:800">NT$0</div></div>
+      <div><div class="lbl">總成本</div><div class="mono" id="u-tc" style="font-size:20px;font-weight:800">NT$0</div></div>
+      <div><div class="lbl">預估總毛利</div><div class="mono" id="u-tp" style="font-size:20px;font-weight:800">NT$0</div></div>
       <div style="flex:1"></div>
       <div style="display:flex;gap:8px">
         <button class="btn btn-gh btn-sm" onclick="clearUnit()">清除</button>
-        <button class="btn btn-or btn-sm" onclick="saveCalcRecord('unit')">💾 儲存</button>
+        <button class="btn btn-or btn-sm" onclick="saveRec('unit')">💾 儲存</button>
       </div>
     </div>
   </div>
@@ -273,694 +211,1063 @@ tr:hover td{background:rgba(255,255,255,.02)}
 
   </div>
 
-  <!-- ===== 月報表 ===== -->
+  <!-- 月報表 -->
 
   <div id="tab-report" style="display:none">
     <div class="sec-title">📊 月銷售毛利報表</div>
-
-```
-<div class="card" style="margin-bottom:14px">
-  <div style="font-weight:700;margin-bottom:8px">上傳蝦皮銷售報表 (.xlsx)</div>
-  <div style="font-size:12px;color:var(--mu);margin-bottom:12px;line-height:1.8">
-    系統使用 <strong style="color:var(--or)">AC欄（商品ID_規格ID）</strong> 對應商品成本<br>
-    使用 <strong style="color:var(--or)">K欄（買家總支付金額）</strong> 作為銷售額<br>
-    商品庫已建立 <strong style="color:var(--or)" id="report-prod-count">0</strong> 個規格成本
-  </div>
-  <div class="upload-zone" id="upload-zone">
-    <input type="file" accept=".xlsx,.xls,.csv" onchange="handleFileUpload(event)">
-    <div style="font-size:26px;margin-bottom:8px">📂</div>
-    <div style="font-weight:700;margin-bottom:4px">點擊或拖曳上傳</div>
-    <div style="font-size:12px;color:var(--mu)">.xlsx / .xls / .csv</div>
-  </div>
-  <div id="upload-status" style="display:none;margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;line-height:1.6"></div>
-</div>
-
-<div id="report-result" style="display:none">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
-    <div>
-      <div style="font-weight:700;font-size:16px" id="report-title"></div>
-      <div style="font-size:12px;color:var(--mu);margin-top:2px" id="report-sub"></div>
+    <div class="card" style="margin-bottom:14px">
+      <div style="font-weight:700;margin-bottom:8px">上傳蝦皮銷售報表</div>
+      <div style="font-size:12px;color:var(--mu);margin-bottom:12px;line-height:1.8">
+        用 AC欄 對應成本，K欄 計算銷售額。商品庫已有 <strong style="color:var(--or)" id="rpt-cnt">0</strong> 個規格。
+      </div>
+      <div class="upload-zone">
+        <input type="file" accept=".xlsx,.xls,.csv" onchange="handleUpload(event)">
+        <div style="font-size:26px;margin-bottom:8px">📂</div>
+        <div style="font-weight:700;margin-bottom:4px">點擊或拖曳上傳</div>
+        <div style="font-size:12px;color:var(--mu)">.xlsx / .xls / .csv</div>
+      </div>
+      <div id="up-status" style="display:none;margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;line-height:1.6"></div>
     </div>
-    <div style="display:flex;gap:8px">
-      <button class="btn btn-gh btn-sm" onclick="clearReport()">✕ 清除</button>
-      <button class="btn btn-gh btn-sm" onclick="exportReportCSV()">📥 匯出CSV</button>
-    </div>
-  </div>
-  <div class="sum-grid" id="report-summary-cards"></div>
-  <div id="no-match-warning" style="display:none;background:var(--ye-d);border:1px solid rgba(240,192,64,.3);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px">
-    <strong style="color:var(--ye)">⚠️ 以下規格未設定成本，無法計算毛利</strong>
-    <div id="no-match-list" style="margin-top:6px;color:var(--mu);line-height:2"></div>
-    <button class="btn btn-sm" style="margin-top:8px;background:var(--ye-d);color:var(--ye);border:1px solid rgba(240,192,64,.3)" onclick="switchTab('products')">→ 前往商品庫補設定</button>
-  </div>
-  <div class="card" style="padding:0;overflow:hidden">
-    <div style="padding:14px 16px;font-weight:700;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center">
-      <span>商品規格銷售明細</span>
-      <span style="font-size:11px;color:var(--mu);font-weight:400">依銷售額排序</span>
-    </div>
-    <div class="report-wrap">
-      <table>
-        <thead><tr>
-          <th>商品名稱／規格</th>
-          <th>規格ID</th>
-          <th>銷售量</th>
-          <th>銷售額</th>
-          <th>單件成本</th>
-          <th>總成本</th>
-          <th>毛利</th>
-          <th>毛利率</th>
-        </tr></thead>
-        <tbody id="report-table-body"></tbody>
-      </table>
+    <div id="rpt-result" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+        <div>
+          <div style="font-weight:700;font-size:16px" id="rpt-title"></div>
+          <div style="font-size:12px;color:var(--mu);margin-top:2px" id="rpt-sub"></div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-gh btn-sm" onclick="clearRpt()">清除</button>
+          <button class="btn btn-gh btn-sm" onclick="exportRpt()">📥 匯出</button>
+        </div>
+      </div>
+      <div class="sum-grid" id="rpt-cards"></div>
+      <div id="rpt-warn" style="display:none;background:var(--ye-d);border:1px solid rgba(240,192,64,.3);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px">
+        <strong style="color:var(--ye)">以下規格未設定成本</strong>
+        <div id="rpt-warn-list" style="margin-top:6px;color:var(--mu);line-height:2"></div>
+        <button class="btn btn-sm" style="margin-top:8px;background:var(--ye-d);color:var(--ye);border:1px solid rgba(240,192,64,.3)" onclick="goTab('products')">前往商品庫補設定</button>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:14px 16px;font-weight:700;border-bottom:1px solid var(--bd)">銷售明細</div>
+        <div class="rpt-wrap">
+          <table>
+            <thead><tr>
+              <th>商品名稱</th><th>規格ID</th><th>銷量</th><th>銷售額</th>
+              <th>單件成本</th><th>總成本</th><th>毛利</th><th>毛利率</th>
+            </tr></thead>
+            <tbody id="rpt-body"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-```
 
-  </div>
-
-  <!-- ===== 歷史記錄 ===== -->
+  <!-- 歷史 -->
 
   <div id="tab-history" style="display:none">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <div class="sec-title" style="margin-bottom:0">🗂 進貨歷史<span style="font-size:13px;color:var(--mu);font-weight:400;margin-left:8px" id="hist-count"></span></div>
-      <button class="btn btn-gh btn-sm" onclick="exportHistoryCSV()" id="hist-export-btn" style="display:none">📥 匯出</button>
+      <div class="sec-title" style="margin-bottom:0">🗂 進貨歷史 <span id="hist-cnt" style="font-size:13px;color:var(--mu);font-weight:400"></span></div>
+      <button class="btn btn-gh btn-sm" onclick="exportHist()" id="hist-exp" style="display:none">📥 匯出</button>
     </div>
-    <div id="history-list"></div>
+    <div id="hist-list"></div>
+  </div>
+
+  <!-- 設定 -->
+
+  <div id="tab-settings" style="display:none">
+    <div class="sec-title">⚙️ 系統設定</div>
+    <div class="card" style="margin-bottom:14px">
+      <div style="font-weight:700;font-size:14px;margin-bottom:16px">費用參數</div>
+      <div style="display:grid;gap:16px">
+        <div>
+          <span class="lbl">每公斤運費（人民幣 RMB/kg）</span>
+          <input type="number" id="cfg-ship" step="0.01" class="mono" oninput="saveCfg()">
+          <div class="help">預設 7.76，計算：單件重量 x 此值 x 匯率</div>
+        </div>
+        <div>
+          <span class="lbl">蝦皮手續費（%）</span>
+          <input type="number" id="cfg-fee" step="0.1" class="mono" oninput="saveCfg()">
+          <div class="help">預設 14.5，計算：售價 x 此百分比</div>
+        </div>
+        <div>
+          <span class="lbl">目標毛利率（%，用於建議售價）</span>
+          <input type="number" id="cfg-margin" step="1" class="mono" oninput="saveCfg()">
+          <div class="help">預設 50，建議售價 = 成本 除以 (1 - 此百分比)</div>
+        </div>
+      </div>
+      <div style="margin-top:18px;padding:14px;background:var(--s2);border-radius:10px;font-size:13px;line-height:2.2">
+        <div>運費：單件重量 x <strong id="disp-ship" style="color:var(--or)">7.76</strong> RMB x 匯率</div>
+        <div>手續費：售價 x <strong id="disp-fee" style="color:var(--ye)">14.5%</strong></div>
+        <div>建議售價：成本 除以 (1 - <strong id="disp-margin" style="color:var(--pu)">50%</strong>)</div>
+      </div>
+    </div>
+    <button class="btn btn-re btn-sm" onclick="resetCfg()">恢復預設值</button>
   </div>
 </div>
 
-<!-- Product Modal -->
+<!-- 商品 Modal -->
 
 <div class="modal-bg" id="prod-modal">
   <div class="modal">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
-      <div style="font-weight:900;font-size:17px" id="prod-modal-title">新增商品規格</div>
+      <div style="font-weight:900;font-size:17px" id="modal-title">新增商品</div>
       <button class="btn btn-gh btn-xs" onclick="closeProdModal()">✕</button>
     </div>
-
-```
-<div style="background:var(--bl-d);border:1px solid rgba(59,130,246,.2);border-radius:10px;padding:10px 14px;font-size:12px;color:#93c5fd;margin-bottom:16px;line-height:1.7">
-  📋 <strong>如何找到規格ID？</strong><br>
-  開啟蝦皮報表 → AC欄格式為 <span class="mono" style="color:var(--ye)">商品ID_規格ID</span><br>
-  例如 <span class="mono">829585737_1444341581</span> → 規格ID 是 <span class="mono" style="color:var(--ye)">1444341581</span>
-</div>
-
-<div style="display:grid;gap:14px">
-  <div><span class="lbl">商品名稱＋規格描述 *</span><input type="text" id="pm-name" placeholder="例：貓抓板-大片76x61"></div>
-  <div class="g2">
-    <div>
-      <span class="lbl">蝦皮商品ID *</span>
-      <input type="text" id="pm-shopee-id" placeholder="例：829585737" class="mono">
-      <div class="help-text">報表Z欄的數字</div>
+    <div style="margin-bottom:16px">
+      <span class="lbl">商品名稱 *</span>
+      <input type="text" id="pm-pname" placeholder="例：貓砂墊">
     </div>
-    <div>
-      <span class="lbl">規格ID * <span style="color:var(--mu);font-weight:400">（尺寸）</span></span>
-      <input type="text" id="pm-variant-id" placeholder="例：1444341581" class="mono">
-      <div class="help-text">AC欄「_」後面的數字</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <span style="font-weight:700;font-size:14px">規格列表</span>
+      <button class="btn btn-gh btn-xs" onclick="addMSpec()">＋ 新增規格</button>
     </div>
-  </div>
-  <div class="g2">
-    <div><span class="lbl">單件進貨成本（NT$）*</span><input type="number" id="pm-cost" placeholder="0" class="mono" step="0.1"></div>
-    <div><span class="lbl">蝦皮售價（NT$）</span><input type="number" id="pm-sell" placeholder="0" class="mono"></div>
-  </div>
-  <div><span class="lbl">備註</span><input type="text" id="pm-note" placeholder="選填，例如：麻繩款 大片"></div>
-</div>
-<div style="display:flex;gap:10px;margin-top:20px">
-  <button class="btn btn-gh" style="flex:1" onclick="closeProdModal()">取消</button>
-  <button class="btn btn-or" style="flex:2" onclick="saveProduct()">儲存</button>
-</div>
-```
-
+    <div id="modal-specs"></div>
+    <div style="background:var(--bl-d);border:1px solid rgba(59,130,246,.2);border-radius:10px;padding:10px 14px;font-size:12px;color:#93c5fd;margin-top:12px;line-height:1.7">
+      規格ID 在報表 AC 欄，格式 商品ID_規格ID，取底線後面的數字
+    </div>
+    <div style="display:flex;gap:10px;margin-top:18px">
+      <button class="btn btn-gh" style="flex:1" onclick="closeProdModal()">取消</button>
+      <button class="btn btn-or" style="flex:2" onclick="saveProd()">儲存商品</button>
+    </div>
   </div>
 </div>
 
 <div id="toast"></div>
 
 <script>
-const SHIPPING = 7.76, FEE_RATE = 0.145;
-const SKEY = 'shopee_mgmt_v2';
+// ── Config ──────────────────────────────────────────
+var CFG = { ship: 7.76, fee: 0.145, margin: 0.5 };
+var SKEY = 'shopee_v7';
+var CKEY = 'shopee_cfg_v1';
 
-let products = [];    // {id, name, shopeeId, variantId, cost, sell, note}
-let calcBatches = [];
-let editProdId = null;
-let unitItems = [], unitItemId = 0;
-let calcMode = 'batch';
-let reportData = null;
+// ── State ────────────────────────────────────────────
+var products = [];   // [{id, name, specs:[{sname,sid,vid,cost,sell,note}]}]
+var batches = [];    // history records
+var mSpecs = [];     // modal specs
+var mSpecId = 0;
+var editProdId = 0;
+var prods = [];      // batch calc products [{id,name,specs:[{id,name,vKey,rmb,boxW,perBox,boxes,sell}]}]
+var pId = 0;
+var sId = 0;
+var units = [];      // unit calc items
+var uId = 0;
+var cMode = 'batch';
+var rptData = null;
 
-// ── Storage ───────────────────────────────────────
-function loadData() {
+// ── Helpers ──────────────────────────────────────────
+function E(id) { return document.getElementById(id); }
+
+function toast(msg, type) {
+  var t = E('toast');
+  t.textContent = msg;
+  t.style.background = type === 'err' ? 'var(--re)' : type === 'warn' ? '#c17f24' : '#1e3a2f';
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2500);
+}
+
+function dlCSV(rows, fn) {
+  var csv = '\uFEFF' + rows.map(function(r) {
+    return r.map(function(v) { return '"' + String(v).replace(/"/g, '""') + '"'; }).join(',');
+  }).join('\n');
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
+  a.download = fn;
+  a.click();
+}
+
+// ── Storage ──────────────────────────────────────────
+function loadAll() {
   try {
-    const d = JSON.parse(localStorage.getItem(SKEY)||'{}');
-    products = d.products||[];
-    calcBatches = d.calcBatches||[];
-    if (d.rate) { document.getElementById('rate-input').value=d.rate; showRateBadge(d.rate); }
-  } catch(e){}
+    var d = JSON.parse(localStorage.getItem(SKEY) || '{}');
+    products = d.products || [];
+    batches = d.batches || [];
+    if (d.rate) { E('rate').value = d.rate; showRateBadge(d.rate); }
+  } catch(e) {}
+  try {
+    var c = JSON.parse(localStorage.getItem(CKEY) || '{}');
+    CFG.ship = parseFloat(c.ship) || 7.76;
+    CFG.fee = (parseFloat(c.fee) || 14.5) / 100;
+    CFG.margin = (parseFloat(c.margin) || 50) / 100;
+  } catch(e) {}
+  E('cfg-ship').value = CFG.ship;
+  E('cfg-fee').value = (CFG.fee * 100).toFixed(1);
+  E('cfg-margin').value = (CFG.margin * 100).toFixed(0);
+  updateCfgDisplay();
 }
+
 function saveAll() {
-  try { localStorage.setItem(SKEY, JSON.stringify({products, calcBatches, rate:document.getElementById('rate-input').value})); } catch(e){}
+  try {
+    localStorage.setItem(SKEY, JSON.stringify({
+      products: products, batches: batches, rate: E('rate').value
+    }));
+  } catch(e) {}
 }
 
-// ── Tab ───────────────────────────────────────────
-function switchTab(tab) {
-  ['products','calc','report','history'].forEach(t => {
-    document.getElementById(`tab-${t}`).style.display = t===tab?'block':'none';
+// ── Tabs ─────────────────────────────────────────────
+var TABS = ['products', 'calc', 'report', 'history', 'settings'];
+
+function goTab(t) {
+  TABS.forEach(function(x) { E('tab-' + x).style.display = x === t ? 'block' : 'none'; });
+  document.querySelectorAll('.nav-btn').forEach(function(b, i) {
+    b.classList.toggle('on', TABS[i] === t);
   });
-  document.querySelectorAll('.nav-btn').forEach((b,i) => b.classList.toggle('on',['products','calc','report','history'][i]===tab));
-  if (tab==='products') renderProducts();
-  if (tab==='report') document.getElementById('report-prod-count').textContent=products.length;
-  if (tab==='history') renderHistory();
-  if (tab==='calc') updateFormulaBar();
+  if (t === 'products') renderProds();
+  if (t === 'report') E('rpt-cnt').textContent = products.length;
+  if (t === 'history') renderHist();
 }
 
-// ── Product DB ────────────────────────────────────
-function openProdModal(id=null) {
-  editProdId=id;
-  document.getElementById('prod-modal-title').textContent = id?'編輯商品規格':'新增商品規格';
-  if (id) {
-    const p=products.find(p=>p.id===id);
-    document.getElementById('pm-name').value=p.name;
-    document.getElementById('pm-shopee-id').value=p.shopeeId;
-    document.getElementById('pm-variant-id').value=p.variantId;
-    document.getElementById('pm-cost').value=p.cost;
-    document.getElementById('pm-sell').value=p.sell||'';
-    document.getElementById('pm-note').value=p.note||'';
+// ── Config ───────────────────────────────────────────
+function saveCfg() {
+  CFG.ship = parseFloat(E('cfg-ship').value) || 7.76;
+  CFG.fee = (parseFloat(E('cfg-fee').value) || 14.5) / 100;
+  CFG.margin = (parseFloat(E('cfg-margin').value) || 50) / 100;
+  try {
+    localStorage.setItem(CKEY, JSON.stringify({
+      ship: CFG.ship, fee: CFG.fee * 100, margin: CFG.margin * 100
+    }));
+  } catch(e) {}
+  updateCfgDisplay();
+  recalcBatch();
+}
+
+function updateCfgDisplay() {
+  var sd = E('disp-ship'), fd = E('disp-fee'), md = E('disp-margin');
+  if (sd) sd.textContent = CFG.ship;
+  if (fd) fd.textContent = (CFG.fee * 100).toFixed(1) + '%';
+  if (md) md.textContent = (CFG.margin * 100).toFixed(0) + '%';
+}
+
+function resetCfg() {
+  CFG = { ship: 7.76, fee: 0.145, margin: 0.5 };
+  E('cfg-ship').value = '7.76';
+  E('cfg-fee').value = '14.5';
+  E('cfg-margin').value = '50';
+  try { localStorage.removeItem(CKEY); } catch(e) {}
+  updateCfgDisplay();
+  recalcBatch();
+  toast('已恢復預設值');
+}
+
+// ── Product DB ───────────────────────────────────────
+function openProdModal(pid) {
+  editProdId = pid;
+  mSpecs = []; mSpecId = 0;
+  if (pid) {
+    E('modal-title').textContent = '編輯商品';
+    var g = products.find(function(x) { return x.id === pid; });
+    E('pm-pname').value = g.name;
+    g.specs.forEach(function(s) {
+      mSpecId++;
+      mSpecs.push({ id: mSpecId, sname: s.sname, sid: s.sid, vid: s.vid, cost: s.cost, sell: s.sell || 0, note: s.note || '' });
+    });
   } else {
-    ['pm-name','pm-shopee-id','pm-variant-id','pm-cost','pm-sell','pm-note'].forEach(i=>document.getElementById(i).value='');
+    E('modal-title').textContent = '新增商品';
+    E('pm-pname').value = '';
+    addMSpec();
   }
-  document.getElementById('prod-modal').classList.add('show');
-}
-function closeProdModal() { document.getElementById('prod-modal').classList.remove('show'); }
-
-function saveProduct() {
-  const name=document.getElementById('pm-name').value.trim();
-  const shopeeId=document.getElementById('pm-shopee-id').value.trim();
-  const variantId=document.getElementById('pm-variant-id').value.trim();
-  const cost=parseFloat(document.getElementById('pm-cost').value);
-  if (!name||!shopeeId||!variantId||isNaN(cost)) { showToast('請填寫所有必填欄位','err'); return; }
-  const entry = {
-    id: editProdId||Date.now(), name, shopeeId, variantId, cost,
-    sell: parseFloat(document.getElementById('pm-sell').value)||0,
-    note: document.getElementById('pm-note').value
-  };
-  if (editProdId) { const i=products.findIndex(p=>p.id===editProdId); products[i]=entry; showToast('✅ 已更新'); }
-  else { products.push(entry); showToast('✅ 已新增'); }
-  saveAll(); closeProdModal(); renderProducts();
+  renderMSpecs();
+  E('prod-modal').classList.add('show');
 }
 
-function deleteProduct(id) {
-  if (!confirm('確定刪除？')) return;
-  products=products.filter(p=>p.id!==id);
-  saveAll(); renderProducts(); showToast('已刪除','warn');
+function closeProdModal() { E('prod-modal').classList.remove('show'); }
+
+function addMSpec() {
+  mSpecId++;
+  mSpecs.push({ id: mSpecId, sname: '', sid: '', vid: '', cost: '', sell: '', note: '' });
+  renderMSpecs();
 }
 
-function renderProducts() {
-  const q=(document.getElementById('prod-search').value||'').toLowerCase();
-  const filtered=products.filter(p=>p.name.toLowerCase().includes(q)||p.shopeeId.includes(q)||p.variantId.includes(q));
-  document.getElementById('products-empty').style.display=filtered.length===0?'block':'none';
+function removeMSpec(id) {
+  if (mSpecs.length <= 1) { toast('至少需要一個規格', 'warn'); return; }
+  mSpecs = mSpecs.filter(function(s) { return s.id !== id; });
+  renderMSpecs();
+}
 
-  // Group by shopeeId
-  const groups={};
-  filtered.forEach(p=>{ if(!groups[p.shopeeId]) groups[p.shopeeId]=[]; groups[p.shopeeId].push(p); });
+function updMS(id, f, v) {
+  var s = mSpecs.find(function(x) { return x.id === id; });
+  if (s) s[f] = v;
+  renderMSpecResult(id);
+}
 
-  document.getElementById('products-list').innerHTML = Object.entries(groups).map(([shopeeId, variants]) => {
-    const firstName = variants[0].name.split('-')[0] || variants[0].name;
-    const varHTML = variants.map(p => {
-      const margin = p.sell>0 ? ((p.sell - p.cost*(1+FEE_RATE))/p.sell*100) : null;
-      return `<div class="variant-row">
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:600;font-size:13px">${p.name}</div>
-          <div style="display:flex;gap:6px;margin-top:4px;flex-wrap:wrap;align-items:center">
-            <span class="variant-badge">規格ID: ${p.variantId}</span>
-            <span class="tag" style="background:var(--or-d);color:var(--or)">成本 NT$${p.cost}</span>
-            ${p.sell?`<span class="tag" style="background:var(--s3);color:var(--mu)">售價 NT$${p.sell}</span>`:''}
-            ${margin!==null?`<span class="tag" style="background:${margin>=15?'var(--gr-d)':margin>=0?'var(--ye-d)':'var(--re-d)'};color:${margin>=15?'var(--gr)':margin>=0?'var(--ye)':'var(--re)'}">毛利率 ${margin.toFixed(1)}%</span>`:''}
-            ${p.note?`<span style="font-size:11px;color:var(--mu)">${p.note}</span>`:''}
-          </div>
-        </div>
-        <div style="display:flex;gap:5px;flex-shrink:0">
-          <button class="btn btn-gh btn-xs" onclick="openProdModal(${p.id})">編輯</button>
-          <button class="btn btn-xs btn-re" onclick="deleteProduct(${p.id})">刪除</button>
-        </div>
-      </div>`;
-    }).join('');
-    return `<div class="prod-group">
-      <div class="prod-group-header" onclick="toggleGroup('g${shopeeId}')">
-        <div style="flex:1">
-          <div style="font-weight:700;font-size:14px">${firstName}</div>
-          <div style="font-size:11px;color:var(--mu);margin-top:2px;font-family:var(--mono)">商品ID: ${shopeeId} · ${variants.length} 個規格</div>
-        </div>
-        <span id="garr-g${shopeeId}" style="color:var(--mu);font-size:12px">▼</span>
-      </div>
-      <div id="g${shopeeId}" class="prod-variants">${varHTML}</div>
-    </div>`;
+function renderMSpecs() {
+  E('modal-specs').innerHTML = mSpecs.map(function(s, i) {
+    return '<div class="mv-row" id="ms-' + s.id + '">' +
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">' +
+      '<div style="width:22px;height:22px;border-radius:5px;background:var(--or-d);color:var(--or);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;flex-shrink:0">' + (i + 1) + '</div>' +
+      '<input type="text" placeholder="規格名稱，例：76x61" value="' + (s.sname || '') + '" oninput="updMS(' + s.id + ',\'sname\',this.value)" style="flex:1;font-weight:600">' +
+      (mSpecs.length > 1 ? '<button onclick="removeMSpec(' + s.id + ')" style="background:none;border:none;color:var(--mu);font-size:20px;cursor:pointer;padding:0 4px">x</button>' : '') +
+      '</div>' +
+      '<div class="g2" style="margin-bottom:10px">' +
+      '<div><span class="lbl">蝦皮商品ID</span><input type="text" placeholder="例：829585737" value="' + (s.sid || '') + '" oninput="updMS(' + s.id + ',\'sid\',this.value)" class="mono"><div class="help">報表 Z 欄</div></div>' +
+      '<div><span class="lbl">規格ID</span><input type="text" placeholder="例：1444341581" value="' + (s.vid || '') + '" oninput="updMS(' + s.id + ',\'vid\',this.value)" class="mono"><div class="help">AC欄底線後面</div></div>' +
+      '</div>' +
+      '<div class="g2" style="margin-bottom:10px">' +
+      '<div><span class="lbl">單件成本 NT$</span><input type="number" placeholder="0" value="' + (s.cost || '') + '" oninput="updMS(' + s.id + ',\'cost\',this.value)" class="mono" step="0.1"></div>' +
+      '<div><span class="lbl">蝦皮售價 NT$</span><input type="number" placeholder="選填" value="' + (s.sell || '') + '" oninput="updMS(' + s.id + ',\'sell\',this.value)" class="mono"></div>' +
+      '</div>' +
+      '<div><span class="lbl">備註</span><input type="text" placeholder="選填" value="' + (s.note || '') + '" oninput="updMS(' + s.id + ',\'note\',this.value)"></div>' +
+      '<div class="mv-result" id="mr-' + s.id + '"></div>' +
+      '</div>';
   }).join('');
 }
 
-function toggleGroup(id) {
-  const el=document.getElementById(id), arr=document.getElementById(`garr-${id}`);
-  if(el){el.classList.toggle('open'); arr.textContent=el.classList.contains('open')?'▲':'▼';}
+function renderMSpecResult(id) {
+  var s = mSpecs.find(function(x) { return x.id === id; });
+  var e = E('mr-' + id);
+  if (!s || !e) return;
+  var cost = parseFloat(s.cost) || 0;
+  if (!cost) { e.className = 'mv-result'; return; }
+  var sell = parseFloat(s.sell) || 0;
+  var fee = sell * CFG.fee;
+  var profit = sell ? sell - cost - fee : null;
+  var margin = (sell > 0 && profit !== null) ? (profit / sell) * 100 : null;
+  var suggested = Math.ceil(cost / (1 - CFG.margin));
+  var html = '建議售價（毛利 ' + (CFG.margin * 100).toFixed(0) + '%）：<strong style="color:var(--pu)">NT$' + suggested + '</strong>';
+  if (sell && profit !== null) {
+    html += '&nbsp;&nbsp;毛利：<strong style="color:' + (profit >= 0 ? 'var(--gr)' : 'var(--re)') + '">' + (profit >= 0 ? '▲' : '▼') + ' NT$' + profit.toFixed(0) + '（' + margin.toFixed(1) + '%）</strong>';
+  }
+  e.className = 'mv-result show';
+  e.innerHTML = html;
 }
 
-// ── Rate ──────────────────────────────────────────
-function onRateChange() {
-  showRateBadge(document.getElementById('rate-input').value);
-  if(calcMode==='batch') calcBatch(); else renderUnitSummary();
+function saveProd() {
+  var pname = E('pm-pname').value.trim();
+  if (!pname) { toast('請填寫商品名稱', 'err'); return; }
+  var valid = mSpecs.filter(function(s) { return s.sname && s.vid && parseFloat(s.cost) > 0; });
+  if (!valid.length) { toast('請至少填寫一個規格（名稱、規格ID、成本）', 'err'); return; }
+  var entry = {
+    id: editProdId || Date.now(),
+    name: pname,
+    specs: valid.map(function(s) {
+      return { sname: s.sname, sid: s.sid, vid: s.vid, cost: parseFloat(s.cost), sell: parseFloat(s.sell) || 0, note: s.note };
+    })
+  };
+  if (editProdId) {
+    var idx = products.findIndex(function(g) { return g.id === editProdId; });
+    products[idx] = entry;
+    toast('已更新');
+  } else {
+    products.push(entry);
+    toast('已新增，' + entry.specs.length + ' 個規格');
+  }
+  saveAll(); closeProdModal(); renderProds();
+}
+
+function delProd(id) {
+  if (!confirm('確定刪除此商品及所有規格？')) return;
+  products = products.filter(function(g) { return g.id !== id; });
+  saveAll(); renderProds(); toast('已刪除', 'warn');
+}
+
+function renderProds() {
+  var q = (E('prod-search').value || '').toLowerCase();
+  var f = products.filter(function(g) {
+    return g.name.toLowerCase().indexOf(q) >= 0 ||
+      g.specs.some(function(s) { return s.vid.indexOf(q) >= 0 || s.sname.toLowerCase().indexOf(q) >= 0; });
+  });
+  E('prod-empty').style.display = f.length === 0 ? 'block' : 'none';
+  E('prod-list').innerHTML = f.map(function(grp) {
+    var specRows = grp.specs.map(function(s) {
+      var m = s.sell > 0 ? ((s.sell - s.cost * (1 + CFG.fee)) / s.sell * 100) : null;
+      var sug = Math.ceil(s.cost / (1 - CFG.margin));
+      var mc = m === null ? '' : m >= 20 ? 'var(--gr-d)' : m >= 0 ? 'var(--ye-d)' : 'var(--re-d)';
+      var mt = m === null ? '' : m >= 20 ? 'var(--gr)' : m >= 0 ? 'var(--ye)' : 'var(--re)';
+      return '<div class="spec-item">' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-weight:600;font-size:13px">' + s.sname + '</div>' +
+        '<div style="display:flex;gap:6px;margin-top:4px;flex-wrap:wrap;align-items:center">' +
+        '<span class="vbadge">規格ID: ' + s.vid + '</span>' +
+        '<span class="tag" style="background:var(--or-d);color:var(--or)">成本 NT$' + s.cost + '</span>' +
+        '<span class="tag" style="background:var(--pu-d);color:var(--pu)">建議售價 NT$' + sug + '</span>' +
+        (s.sell ? '<span class="tag" style="background:var(--s3);color:var(--mu)">售價 NT$' + s.sell + '</span>' : '') +
+        (m !== null ? '<span class="tag" style="background:' + mc + ';color:' + mt + '">毛利率 ' + m.toFixed(1) + '%</span>' : '') +
+        (s.note ? '<span style="font-size:11px;color:var(--mu)">' + s.note + '</span>' : '') +
+        '</div></div></div>';
+    }).join('');
+    return '<div class="prod-group">' +
+      '<div class="prod-group-hdr" onclick="togProd(\'pg' + grp.id + '\')">' +
+      '<div style="flex:1"><div style="font-weight:700;font-size:14px">' + grp.name + '</div>' +
+      '<div style="font-size:11px;color:var(--mu)">' + grp.specs.length + ' 個規格</div></div>' +
+      '<div style="display:flex;gap:6px;flex-shrink:0">' +
+      '<button class="btn btn-gh btn-xs" onclick="event.stopPropagation();openProdModal(' + grp.id + ')">編輯</button>' +
+      '<button class="btn btn-xs btn-re" onclick="event.stopPropagation();delProd(' + grp.id + ')">刪除</button>' +
+      '<span id="arr-pg' + grp.id + '" style="color:var(--mu);font-size:12px">▼</span>' +
+      '</div></div>' +
+      '<div id="pg' + grp.id + '" class="prod-body">' + specRows + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+function togProd(id) {
+  var e = E(id), a = E('arr-' + id);
+  if (e) { e.classList.toggle('open'); a.textContent = e.classList.contains('open') ? '▲' : '▼'; }
+}
+
+// ── Rate ─────────────────────────────────────────────
+function onRate() {
+  showRateBadge(E('rate').value);
+  recalcBatch();
   saveAll();
 }
+
 function showRateBadge(v) {
-  const el=document.getElementById('rate-badge');
-  if(v&&parseFloat(v)>0){el.style.display='block';el.textContent=`1 CNY = ${parseFloat(v).toFixed(2)} TWD`;}
-  else el.style.display='none';
-}
-async function fetchRate() {
-  const btn=document.getElementById('fetch-btn');
-  btn.textContent='…'; btn.disabled=true;
-  try {
-    const res=await fetch('https://api.exchangerate-api.com/v4/latest/CNY');
-    const data=await res.json();
-    const twd=data.rates?.TWD;
-    if(twd){document.getElementById('rate-input').value=twd.toFixed(2);onRateChange();showToast(`✅ 1 CNY = ${twd.toFixed(2)} TWD`);}
-    else showToast('無法取得匯率','err');
-  }catch{showToast('網路錯誤','err');}
-  btn.textContent='🌐'; btn.disabled=false;
-}
-
-// ── Calc Mode ─────────────────────────────────────
-function switchCalcMode(mode) {
-  calcMode=mode;
-  document.getElementById('mode-batch-btn').classList.toggle('on',mode==='batch');
-  document.getElementById('mode-unit-btn').classList.toggle('on',mode==='unit');
-  document.getElementById('calc-batch').style.display=mode==='batch'?'block':'none';
-  document.getElementById('calc-unit').style.display=mode==='unit'?'block':'none';
-  if(mode==='unit'&&unitItems.length===0) addUnitItem();
-  updateFormulaBar();
-}
-function updateFormulaBar() {
-  const bar=document.getElementById('formula-bar'); if(!bar) return;
-  bar.innerHTML=calcMode==='batch'
-    ?`<span style="color:var(--or);font-weight:700">整批　</span>單件進貨 = 總金額(¥)÷總數量×匯率　｜　單件運費 = 總重×7.76×匯率÷總數量　｜　<span style="color:var(--ye)">手續費 = 售價×14.5%</span>`
-    :`<span style="color:var(--or);font-weight:700">單品　</span>進貨成本 = 人民幣×匯率　｜　運費 = 單件重量×7.76×匯率　｜　<span style="color:var(--ye)">手續費 = 售價×14.5%</span>`;
-}
-
-// ── Batch Calc ────────────────────────────────────
-function calcBatchQty() {
-  const pb=parseInt(document.getElementById('b-per-box').value)||0;
-  const bx=parseInt(document.getElementById('b-boxes').value)||0;
-  if(pb>0&&bx>0) document.getElementById('b-qty').value=pb*bx;
-  calcBatch();
-}
-function calcBatch() {
-  const rate=parseFloat(document.getElementById('rate-input').value)||0;
-  const qty=parseInt(document.getElementById('b-qty').value)||0;
-  const weight=parseFloat(document.getElementById('b-weight').value)||0;
-  const rmb=parseFloat(document.getElementById('b-rmb').value)||0;
-  const sell=parseFloat(document.getElementById('b-sell').value)||0;
-  const boxes=parseInt(document.getElementById('b-boxes').value)||0;
-  const perBox=parseInt(document.getElementById('b-per-box').value)||0;
-  const el=document.getElementById('batch-result');
-  if(!rate||!qty||!rmb){el.style.display='none'; document.getElementById('sync-to-db-btn').style.display='none'; return;}
-  el.style.display='block';
-  const uc=(rmb/qty)*rate, us=(weight*SHIPPING*rate)/qty, fee=sell*FEE_RATE;
-  const total=uc+us+(sell?fee:0), profit=sell?sell-total:0, margin=sell>0?(profit/sell)*100:0;
-  s('br-cost',`NT$${uc.toFixed(1)}`); s('br-ship',`NT$${us.toFixed(1)}`);
-  s('br-total',`NT$${total.toFixed(1)}`); s('br-total-twd',`NT$${((uc+us)*qty).toFixed(0)}`);
-  const fr=document.getElementById('br-fee-row');
-  if(sell){fr.style.display='flex';s('br-fee',`NT$${fee.toFixed(1)}`);}else fr.style.display='none';
-  const ps=document.getElementById('br-profit-sec');
-  if(sell){
-    ps.style.display='block';
-    const pc=profit>=0?'var(--gr)':'var(--re)';
-    document.getElementById('br-profit').innerHTML=`<span style="color:${pc}">${profit>=0?'▲':'▼'} NT$${profit.toFixed(1)}</span>`;
-    document.getElementById('br-margin').innerHTML=`<span style="color:${margin>=15?'var(--gr)':margin>=0?'var(--ye)':'var(--re)'}">${margin.toFixed(1)}%</span>`;
-    document.getElementById('br-total-profit').innerHTML=`<span style="color:${pc}">${profit>=0?'▲':'▼'} NT$${(profit*qty).toFixed(0)}</span>`;
-  }else ps.style.display='none';
-  const bi=document.getElementById('br-box-info');
-  if(boxes>0&&perBox>0){bi.style.display='flex';s('br-per-box',`${boxes}箱 × ${perBox}件/箱 = ${boxes*perBox}件`);}else bi.style.display='none';
-  // show sync hint if variantKey filled
-  const vk=document.getElementById('b-variant-key').value.trim();
-  document.getElementById('sync-to-db-btn').style.display=vk?'inline-flex':'none';
-  document.getElementById('br-save-hint').style.display=vk?'block':'none';
-}
-function clearBatch() {
-  ['b-name','b-variant-key','b-per-box','b-boxes','b-qty','b-weight','b-rmb','b-sell'].forEach(i=>document.getElementById(i).value='');
-  document.getElementById('batch-result').style.display='none';
-  document.getElementById('sync-to-db-btn').style.display='none';
-}
-
-// 同步至商品庫
-function syncBatchToDB() {
-  const vk=document.getElementById('b-variant-key').value.trim();
-  const name=document.getElementById('b-name').value.trim();
-  const rate=parseFloat(document.getElementById('rate-input').value)||0;
-  const qty=parseInt(document.getElementById('b-qty').value)||0;
-  const weight=parseFloat(document.getElementById('b-weight').value)||0;
-  const rmb=parseFloat(document.getElementById('b-rmb').value)||0;
-  const sell=parseFloat(document.getElementById('b-sell').value)||0;
-  if(!vk||!rate||!qty||!rmb){showToast('請先完整填寫資訊','err');return;}
-  const parts=vk.split('_');
-  if(parts.length<2){showToast('商品ID_規格ID 格式不正確','err');return;}
-  const shopeeId=parts[0], variantId=parts[1];
-  const uc=(rmb/qty)*rate, us=(weight*SHIPPING*rate)/qty, total=uc+us;
-  const existing=products.find(p=>p.shopeeId===shopeeId&&p.variantId===variantId);
-  if(existing){
-    existing.cost=parseFloat(total.toFixed(1));
-    if(sell) existing.sell=sell;
-    if(name) existing.name=name;
-    showToast('✅ 商品庫成本已更新');
+  var e = E('rate-badge');
+  if (v && parseFloat(v) > 0) {
+    e.style.display = 'block';
+    e.textContent = '1 CNY = ' + parseFloat(v).toFixed(2) + ' TWD';
   } else {
-    products.push({id:Date.now(), name:name||`商品${shopeeId}`, shopeeId, variantId, cost:parseFloat(total.toFixed(1)), sell:sell||0, note:''});
-    showToast('✅ 已新增至商品庫');
+    e.style.display = 'none';
   }
-  saveAll(); renderProducts();
 }
 
-// ── Unit Calc ─────────────────────────────────────
-function addUnitItem(){unitItems.push({id:++unitItemId,name:'',rmb:'',weight:'',qty:1,sell:''});renderUnitItems();}
-function removeUnitItem(id){unitItems=unitItems.filter(i=>i.id!==id);renderUnitItems();}
-function updateUnitItem(id,field,val){const item=unitItems.find(i=>i.id===id);if(item)item[field]=val;renderUnitItemResult(id);renderUnitSummary();}
-function calcUnit(item,rate){
-  const r=parseFloat(rate)||0,rmb=parseFloat(item.rmb)||0,w=parseFloat(item.weight)||0;
-  const qty=parseInt(item.qty)||1,sell=parseFloat(item.sell)||0;
-  const cTWD=rmb*r,sTWD=w*SHIPPING*r,fee=sell*FEE_RATE,total=cTWD+sTWD+fee;
-  const profit=sell-total,margin=sell>0?(profit/sell)*100:0;
-  return{cTWD,sTWD,fee,total,profit,margin,totalProfit:profit*qty};
+function fetchRate() {
+  var b = E('fetch-btn'); b.textContent = '…'; b.disabled = true;
+  fetch('https://api.exchangerate-api.com/v4/latest/CNY')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var t = d.rates && d.rates.TWD;
+      if (t) { E('rate').value = t.toFixed(2); onRate(); toast('1 CNY = ' + t.toFixed(2) + ' TWD'); }
+      else toast('無法取得匯率', 'err');
+      b.textContent = '🌐'; b.disabled = false;
+    })
+    .catch(function() { toast('網路錯誤', 'err'); b.textContent = '🌐'; b.disabled = false; });
 }
-function renderUnitItems(){
-  document.getElementById('unit-items').innerHTML=unitItems.map((item,idx)=>`
-    <div style="background:var(--s2);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px" id="uitem-${item.id}">
-      <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
-        <div style="width:22px;height:22px;border-radius:5px;background:var(--or-d);color:var(--or);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;flex-shrink:0">${idx+1}</div>
-        <input type="text" placeholder="商品名稱" value="${item.name}" oninput="updateUnitItem(${item.id},'name',this.value)" style="flex:1;font-weight:600">
-        ${unitItems.length>1?`<button onclick="removeUnitItem(${item.id})" style="background:none;border:none;color:var(--mu);font-size:20px;cursor:pointer;padding:0 4px">×</button>`:''}
-      </div>
-      <div class="g3" style="margin-bottom:10px">
-        <div><span class="lbl">人民幣¥</span><input type="number" placeholder="0" value="${item.rmb}" oninput="updateUnitItem(${item.id},'rmb',this.value)" class="mono" step="0.01" inputmode="decimal"></div>
-        <div><span class="lbl">重量kg</span><input type="number" placeholder="0" value="${item.weight}" oninput="updateUnitItem(${item.id},'weight',this.value)" class="mono" step="0.01" inputmode="decimal"></div>
-        <div><span class="lbl">數量</span><input type="number" placeholder="1" value="${item.qty}" min="1" oninput="updateUnitItem(${item.id},'qty',this.value)" class="mono" inputmode="numeric"></div>
-      </div>
-      <div><span class="lbl">蝦皮售價 NT$</span><input type="number" placeholder="0" value="${item.sell}" oninput="updateUnitItem(${item.id},'sell',this.value)" class="mono" inputmode="numeric"></div>
-      <div id="ures-${item.id}"></div>
-    </div>`).join('');
-  renderUnitSummary();
-}
-function renderUnitItemResult(id){
-  const item=unitItems.find(i=>i.id===id),el=document.getElementById(`ures-${id}`);
-  if(!item||!el) return;
-  const rate=document.getElementById('rate-input').value;
-  if(!item.rmb||!rate){el.innerHTML='';return;}
-  const c=calcUnit(item,rate),qty=parseInt(item.qty)||1;
-  let pills=`<span class="pill" style="background:rgba(255,255,255,.05);color:#e8e4f0">成本 NT$${c.cTWD.toFixed(0)}</span> <span class="pill" style="background:rgba(255,255,255,.05);color:#e8e4f0">運費 NT$${c.sTWD.toFixed(0)}</span> `;
-  if(item.sell)pills+=`<span class="pill" style="background:var(--ye-d);color:var(--ye)">手續費 NT$${c.fee.toFixed(0)}</span> `;
-  pills+=`<span class="pill" style="background:var(--or-d);color:var(--or)">總成本 NT$${c.total.toFixed(0)}</span> `;
-  if(item.sell){
-    const pc=c.profit>=0?'var(--gr)':'var(--re)',pb=c.profit>=0?'var(--gr-d)':'var(--re-d)';
-    const mc=c.margin>=15?'var(--gr)':c.margin>=0?'var(--ye)':'var(--re)',mb=c.margin>=15?'var(--gr-d)':c.margin>=0?'var(--ye-d)':'var(--re-d)';
-    pills+=`<span class="pill" style="background:${pb};color:${pc}">${c.profit>=0?'▲':'▼'} NT$${c.profit.toFixed(0)}</span> <span class="pill" style="background:${mb};color:${mc}">${c.margin.toFixed(1)}%</span>`;
-    if(qty>1)pills+=` <span class="pill" style="background:var(--bl-d);color:var(--bl)">×${qty} 利潤 NT$${c.totalProfit.toFixed(0)}</span>`;
-  }
-  el.innerHTML=`<div style="border-top:1px solid var(--bd);padding-top:10px;margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">${pills}</div>`;
-}
-function renderUnitSummary(){
-  const rate=document.getElementById('rate-input').value,valid=unitItems.filter(i=>i.name||i.rmb),el=document.getElementById('unit-summary');
-  if(!valid.length||!rate){el.style.display='none';return;}
-  let tc=0,tp=0;
-  valid.forEach(item=>{const c=calcUnit(item,rate),qty=parseInt(item.qty)||1;tc+=c.total*qty;tp+=c.totalProfit;});
-  el.style.display='block';
-  s('u-sum-cost',`NT$${tc.toFixed(0)}`);
-  const pe=document.getElementById('u-sum-profit');
-  pe.textContent=`${tp>=0?'▲':'▼'} NT$${tp.toFixed(0)}`;
-  pe.className=`mono ${tp>=0?'pos':'neg'}`;
-  pe.style.cssText='font-size:20px;font-weight:800';
-}
-function clearUnit(){unitItems=[];unitItemId=0;addUnitItem();}
 
-// ── Save Record ───────────────────────────────────
-function saveCalcRecord(mode){
-  const rate=document.getElementById('rate-input').value;
-  if(!rate){showToast('請先填入匯率','err');return;}
-  const name=document.getElementById('batch-name').value;
-  let rec;
-  if(mode==='batch'){
-    const qty=parseInt(document.getElementById('b-qty').value),rmb=parseFloat(document.getElementById('b-rmb').value);
-    if(!qty||!rmb){showToast('請填入數量與金額','err');return;}
-    rec={id:Date.now(),mode:'batch',
-      name:name||`整批進貨 ${new Date().toLocaleDateString('zh-TW')}`,
-      date:new Date().toISOString().split('T')[0],
-      rate:parseFloat(rate),
-      productName:document.getElementById('b-name').value||'未命名',
-      variantKey:document.getElementById('b-variant-key').value,
-      perBox:document.getElementById('b-per-box').value||0,
-      boxes:document.getElementById('b-boxes').value||0,
-      qty,weight:document.getElementById('b-weight').value||0,rmb,
-      sell:document.getElementById('b-sell').value||0};
+// ── Calc Mode ────────────────────────────────────────
+function goMode(m) {
+  cMode = m;
+  E('m-batch').classList.toggle('on', m === 'batch');
+  E('m-unit').classList.toggle('on', m === 'unit');
+  E('calc-batch').style.display = m === 'batch' ? 'block' : 'none';
+  E('calc-unit').style.display = m === 'unit' ? 'block' : 'none';
+  if (m === 'unit' && units.length === 0) addUnit();
+  if (m === 'batch' && prods.length === 0) addProd();
+}
+
+// ── Batch Calc ───────────────────────────────────────
+function calcSpec(s, rate) {
+  var rmb = parseFloat(s.rmb) || 0;
+  if (!rate || !rmb) return null;
+  var boxW = parseFloat(s.boxW) || 0;
+  var perBox = parseInt(s.perBox) || 0;
+  var boxes = parseInt(s.boxes) || 0;
+  var qty = (perBox > 0 && boxes > 0) ? perBox * boxes : 0;
+  var unitW = (perBox > 0 && boxW > 0) ? boxW / perBox : 0;
+  var sell = parseFloat(s.sell) || 0;
+  var costTWD = rmb * rate;
+  var shipTWD = unitW * CFG.ship * rate;
+  var fee = sell * CFG.fee;
+  var total = costTWD + shipTWD + (sell ? fee : 0);
+  var profit = sell ? sell - total : null;
+  var margin = (sell > 0 && profit !== null) ? (profit / sell) * 100 : null;
+  var suggested = Math.ceil(total / (1 - CFG.margin));
+  return { costTWD: costTWD, shipTWD: shipTWD, unitW: unitW, fee: fee, total: total, profit: profit, margin: margin, qty: qty, suggested: suggested };
+}
+
+function addProd() {
+  pId++;
+  prods.push({ id: pId, name: '', specs: [] });
+  addSpec(pId);
+}
+
+function removeProd(pid) {
+  prods = prods.filter(function(p) { return p.id !== pid; });
+  renderBatch(); updateBSum();
+}
+
+function updProdName(pid, v) {
+  var p = prods.find(function(x) { return x.id === pid; });
+  if (p) p.name = v;
+  updateBSum();
+}
+
+function addSpec(pid) {
+  var p = prods.find(function(x) { return x.id === pid; });
+  if (!p) return;
+  sId++;
+  p.specs.push({ id: sId, name: '', vKey: '', rmb: '', boxW: '', perBox: '', boxes: '', sell: '' });
+  renderBatch();
+}
+
+function removeSpec(pid, sid) {
+  var p = prods.find(function(x) { return x.id === pid; });
+  if (!p) return;
+  if (p.specs.length <= 1) { toast('至少需要一個規格', 'warn'); return; }
+  p.specs = p.specs.filter(function(s) { return s.id !== sid; });
+  renderBatch(); updateBSum();
+}
+
+function updSpec(pid, sid, f, v) {
+  var p = prods.find(function(x) { return x.id === pid; });
+  if (!p) return;
+  var s = p.specs.find(function(x) { return x.id === sid; });
+  if (!s) return;
+  s[f] = v;
+  recalcSpec(pid, sid);
+  updateBSum();
+}
+
+function renderBatch() {
+  var rate = parseFloat(E('rate').value) || 0;
+  E('prod-batch-list').innerHTML = prods.map(function(p, pi) {
+    var specHTML = p.specs.map(function(s, si) {
+      return '<div class="spec-card" id="sc-' + s.id + '">' +
+        '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">' +
+        '<div style="width:22px;height:22px;border-radius:5px;background:var(--bl-d);color:var(--bl);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;flex-shrink:0">' + (si + 1) + '</div>' +
+        '<input type="text" placeholder="規格尺寸，例：76x61" value="' + (s.name || '') + '" oninput="updSpec(' + p.id + ',' + s.id + ',\'name\',this.value)" style="flex:1;font-weight:600">' +
+        (p.specs.length > 1 ? '<button onclick="removeSpec(' + p.id + ',' + s.id + ')" style="background:none;border:none;color:var(--mu);font-size:20px;cursor:pointer;padding:0 4px;flex-shrink:0">x</button>' : '') +
+        '</div>' +
+        '<div style="margin-bottom:10px">' +
+        '<span class="lbl">商品ID_規格ID（AC欄）</span>' +
+        '<input type="text" placeholder="例：829585737_1444341581" value="' + (s.vKey || '') + '" oninput="updSpec(' + p.id + ',' + s.id + ',\'vKey\',this.value)" class="mono" style="font-size:12px">' +
+        '<div class="help">月報表匯入時對應成本用</div>' +
+        '</div>' +
+        '<div class="g2" style="margin-bottom:10px">' +
+        '<div><span class="lbl">單件人民幣成本</span><input type="number" placeholder="0.00" value="' + (s.rmb || '') + '" oninput="updSpec(' + p.id + ',' + s.id + ',\'rmb\',this.value)" class="mono" step="0.01" inputmode="decimal"><div class="hint" id="h-rmb-' + s.id + '"></div></div>' +
+        '<div><span class="lbl">整箱重量 kg</span><input type="number" placeholder="例：15.5" value="' + (s.boxW || '') + '" oninput="updSpec(' + p.id + ',' + s.id + ',\'boxW\',this.value)" class="mono" step="0.1" inputmode="decimal"><div class="hint" id="h-uw-' + s.id + '"></div></div>' +
+        '</div>' +
+        '<div class="g3" style="margin-bottom:10px">' +
+        '<div><span class="lbl">每箱件數</span><input type="number" placeholder="例：50" value="' + (s.perBox || '') + '" oninput="updSpec(' + p.id + ',' + s.id + ',\'perBox\',this.value)" class="mono" inputmode="numeric"></div>' +
+        '<div><span class="lbl">箱數</span><input type="number" placeholder="例：4" value="' + (s.boxes || '') + '" oninput="updSpec(' + p.id + ',' + s.id + ',\'boxes\',this.value)" class="mono" inputmode="numeric"></div>' +
+        '<div><span class="lbl">總數量（自動）</span><input type="number" placeholder="自動" id="qty-' + s.id + '" class="mono" readonly></div>' +
+        '</div>' +
+        '<div><span class="lbl">蝦皮售價 NT$（選填）</span><input type="number" placeholder="填入後顯示毛利" value="' + (s.sell || '') + '" oninput="updSpec(' + p.id + ',' + s.id + ',\'sell\',this.value)" class="mono" inputmode="numeric"></div>' +
+        '<div class="spec-result" id="sr-' + s.id + '"></div>' +
+        '</div>';
+    }).join('');
+
+    return '<div class="prod-block" id="pb-' + p.id + '">' +
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">' +
+      '<div style="width:28px;height:28px;border-radius:8px;background:var(--or);color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0">' + (pi + 1) + '</div>' +
+      '<input type="text" placeholder="商品名稱，例：貓砂墊" value="' + (p.name || '') + '" oninput="updProdName(' + p.id + ',this.value)" style="flex:1;font-weight:800;font-size:15px">' +
+      (prods.length > 1 ? '<button onclick="removeProd(' + p.id + ')" style="background:none;border:none;color:var(--mu);font-size:18px;cursor:pointer;padding:0 4px;flex-shrink:0" title="刪除此商品">🗑</button>' : '') +
+      '</div>' +
+      specHTML +
+      '<button class="btn btn-gh btn-xs" style="width:100%;margin-top:4px" onclick="addSpec(' + p.id + ')">+ 新增規格</button>' +
+      '</div>';
+  }).join('');
+
+  prods.forEach(function(p) {
+    p.specs.forEach(function(s) { recalcSpec(p.id, s.id); });
+  });
+}
+
+function recalcSpec(pid, sid) {
+  var p = prods.find(function(x) { return x.id === pid; });
+  if (!p) return;
+  var s = p.specs.find(function(x) { return x.id === sid; });
+  if (!s) return;
+  var rate = parseFloat(E('rate').value) || 0;
+  var c = calcSpec(s, rate);
+  var qEl = E('qty-' + s.id);
+  var hRmb = E('h-rmb-' + s.id);
+  var hUw = E('h-uw-' + s.id);
+  if (qEl) qEl.value = (c && c.qty > 0) ? c.qty : '';
+  var rmb = parseFloat(s.rmb) || 0;
+  var bw = parseFloat(s.boxW) || 0;
+  var pb = parseInt(s.perBox) || 0;
+  if (hRmb) hRmb.textContent = (rate && rmb) ? '= NT$' + (rmb * rate).toFixed(1) : '';
+  if (hUw) hUw.textContent = (bw && pb) ? '單件 ' + (bw / pb).toFixed(3) + 'kg' : '';
+  var res = E('sr-' + s.id);
+  if (!res) return;
+  if (!c) { res.className = 'spec-result'; return; }
+  res.className = 'spec-result show';
+  var feeLabel = (CFG.fee * 100).toFixed(1) + '%';
+  var marginLabel = (CFG.margin * 100).toFixed(0) + '%';
+  var html =
+    '<div class="rr"><span class="rl">進貨成本</span><span class="rv">NT$' + c.costTWD.toFixed(1) + '</span></div>' +
+    '<div class="rr"><span class="rl">單件運費（' + c.unitW.toFixed(3) + 'kg x ' + CFG.ship + ' x ' + rate + '）</span><span class="rv">NT$' + c.shipTWD.toFixed(1) + '</span></div>' +
+    (s.sell ? '<div class="rr"><span class="rl" style="color:var(--ye)">手續費（' + feeLabel + '）</span><span class="rv" style="color:var(--ye)">NT$' + c.fee.toFixed(1) + '</span></div>' : '') +
+    '<div class="rr hl"><span class="rl">單件總成本</span><span class="rv">NT$' + c.total.toFixed(1) + '</span></div>' +
+    '<div class="rr sg"><span class="rl">建議售價（毛利 ' + marginLabel + '）</span><span class="rv">NT$' + c.suggested + '</span></div>';
+  if (c.qty > 0) {
+    html += '<div class="divider"></div>' +
+      '<div class="rr"><span class="rl">總件數</span><span class="rv">' + c.qty + ' 件</span></div>' +
+      '<div class="rr"><span class="rl">此規格總進貨成本</span><span class="rv">NT$' + (c.total * c.qty).toFixed(0) + '</span></div>';
+  }
+  if (c.profit !== null) {
+    var pc = c.profit >= 0 ? 'gn' : 'rd';
+    var mc = c.margin >= 20 ? 'var(--gr)' : c.margin >= 0 ? 'var(--ye)' : 'var(--re)';
+    html += '<div class="divider"></div>' +
+      '<div class="rr ' + pc + '"><span class="rl">單件毛利</span><span class="rv">' + (c.profit >= 0 ? '▲' : '▼') + ' NT$' + c.profit.toFixed(1) + '</span></div>' +
+      '<div class="rr"><span class="rl">毛利率</span><span class="rv" style="color:' + mc + '">' + c.margin.toFixed(1) + '%</span></div>';
+    if (c.qty > 0) {
+      html += '<div class="rr ' + pc + '"><span class="rl">此規格總毛利</span><span class="rv">' + (c.profit >= 0 ? '▲' : '▼') + ' NT$' + (c.profit * c.qty).toFixed(0) + '</span></div>';
+    }
+  }
+  res.innerHTML = html;
+}
+
+function recalcBatch() {
+  prods.forEach(function(p) {
+    p.specs.forEach(function(s) { recalcSpec(p.id, s.id); });
+  });
+  updateBSum();
+}
+
+function updateBSum() {
+  var rate = parseFloat(E('rate').value) || 0;
+  var bsEl = E('batch-sum'), sb = E('sync-btn');
+  var tc = 0, tp = 0, hasD = false, hasP = false;
+  prods.forEach(function(p) {
+    p.specs.forEach(function(s) {
+      var c = calcSpec(s, rate);
+      if (c && c.qty > 0) {
+        hasD = true;
+        tc += c.total * c.qty;
+        if (c.profit !== null) { tp += c.profit * c.qty; hasP = true; }
+      }
+    });
+  });
+  if (!hasD) { bsEl.className = 'batch-sum'; sb.style.display = 'none'; return; }
+  bsEl.className = 'batch-sum show';
+  var html = '<div style="font-size:11px;color:var(--mu);font-weight:700;margin-bottom:12px">整批合計</div>' +
+    '<div class="g2" style="margin-bottom:12px">' +
+    '<div><div class="lbl">總進貨成本</div><div class="mono" style="font-size:20px;font-weight:800;color:var(--or)">NT$' + tc.toFixed(0) + '</div></div>';
+  if (hasP) {
+    html += '<div><div class="lbl">預估總毛利</div><div class="mono ' + (tp >= 0 ? 'pos' : 'neg') + '" style="font-size:20px;font-weight:800">' + (tp >= 0 ? '▲' : '▼') + ' NT$' + Math.abs(tp).toFixed(0) + '</div></div>';
+  }
+  html += '</div>';
+  prods.forEach(function(p) {
+    var anyData = p.specs.some(function(s) { return s.rmb; });
+    if (!anyData) return;
+    html += '<div style="font-size:13px;font-weight:700;color:#e8e4f0;padding:6px 0 2px">' + (p.name || '未命名商品') + '</div>';
+    p.specs.forEach(function(s) {
+      var c = calcSpec(s, rate);
+      if (c && c.qty > 0) {
+        html += '<div style="display:flex;justify-content:space-between;padding:4px 0 4px 10px;border-left:2px solid var(--or-b);margin-bottom:2px;font-size:12px">' +
+          '<span style="color:var(--mu)">' + (s.name || '規格') + ' x ' + c.qty + '件</span>' +
+          '<span class="mono">NT$' + (c.total * c.qty).toFixed(0) +
+          (c.profit !== null ? ' / <span style="color:' + (c.profit >= 0 ? 'var(--gr)' : 'var(--re)') + '">' + (c.profit >= 0 ? '▲' : '▼') + 'NT$' + (c.profit * c.qty).toFixed(0) + '</span>' : '') +
+          '</span></div>';
+      }
+    });
+  });
+  bsEl.innerHTML = html;
+  var hasKey = prods.some(function(p) { return p.specs.some(function(s) { return s.vKey && s.vKey.trim().length > 0; }); });
+  sb.style.display = hasKey ? 'inline-flex' : 'none';
+}
+
+function syncDB() {
+  var rate = parseFloat(E('rate').value) || 0;
+  var added = 0, updated = 0;
+  prods.forEach(function(p) {
+    p.specs.forEach(function(s) {
+      if (!s.vKey || !s.vKey.trim() || !s.rmb) return;
+      var c = calcSpec(s, rate);
+      if (!c) return;
+      var parts = s.vKey.split('_');
+      if (parts.length < 2) return;
+      var sid = parts[0], vid = parts[parts.length - 1];
+      var sell = parseFloat(s.sell) || 0;
+      var cost = parseFloat(c.total.toFixed(1));
+      var sname = s.name || '規格';
+      var grp = null;
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].specs.some(function(x) { return x.sid === sid; })) { grp = products[i]; break; }
+      }
+      if (grp) {
+        var ex = grp.specs.find(function(x) { return x.vid === vid; });
+        if (ex) { ex.cost = cost; if (sell) ex.sell = sell; if (sname) ex.sname = sname; updated++; }
+        else { grp.specs.push({ sname: sname, sid: sid, vid: vid, cost: cost, sell: sell, note: '' }); added++; }
+      } else {
+        products.push({ id: Date.now() + Math.random(), name: p.name || '商品' + sid, specs: [{ sname: sname, sid: sid, vid: vid, cost: cost, sell: sell, note: '' }] });
+        added++;
+      }
+    });
+  });
+  saveAll(); renderProds();
+  toast('同步完成：新增' + added + '，更新' + updated);
+}
+
+function clearBatch() {
+  prods = []; pId = 0; sId = 0;
+  addProd();
+  E('batch-sum').className = 'batch-sum';
+  E('sync-btn').style.display = 'none';
+}
+
+// ── Unit Calc ─────────────────────────────────────────
+function addUnit() {
+  uId++;
+  units.push({ id: uId, name: '', rmb: '', weight: '', qty: 1, sell: '' });
+  renderUnits();
+}
+function removeUnit(id) {
+  units = units.filter(function(i) { return i.id !== id; });
+  renderUnits();
+}
+function updUnit(id, f, v) {
+  var u = units.find(function(i) { return i.id === id; });
+  if (u) u[f] = v;
+  renderUnitResult(id);
+  renderUnitSum();
+}
+
+function calcUnit(u, rate) {
+  var r = parseFloat(rate) || 0;
+  var rmb = parseFloat(u.rmb) || 0;
+  var w = parseFloat(u.weight) || 0;
+  var qty = parseInt(u.qty) || 1;
+  var sell = parseFloat(u.sell) || 0;
+  var cTWD = rmb * r;
+  var sTWD = w * CFG.ship * r;
+  var fee = sell * CFG.fee;
+  var total = cTWD + sTWD + fee;
+  var profit = sell - total;
+  var margin = sell > 0 ? (profit / sell) * 100 : 0;
+  var suggested = Math.ceil(total / (1 - CFG.margin));
+  return { cTWD: cTWD, sTWD: sTWD, fee: fee, total: total, profit: profit, margin: margin, totalProfit: profit * qty, suggested: suggested };
+}
+
+function renderUnits() {
+  E('unit-list').innerHTML = units.map(function(u, idx) {
+    return '<div style="background:var(--s2);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px">' +
+      '<div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">' +
+      '<div style="width:22px;height:22px;border-radius:5px;background:var(--or-d);color:var(--or);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;flex-shrink:0">' + (idx + 1) + '</div>' +
+      '<input type="text" placeholder="商品名稱" value="' + (u.name || '') + '" oninput="updUnit(' + u.id + ',\'name\',this.value)" style="flex:1;font-weight:600">' +
+      (units.length > 1 ? '<button onclick="removeUnit(' + u.id + ')" style="background:none;border:none;color:var(--mu);font-size:20px;cursor:pointer;padding:0 4px">x</button>' : '') +
+      '</div>' +
+      '<div class="g3" style="margin-bottom:10px">' +
+      '<div><span class="lbl">人民幣</span><input type="number" placeholder="0" value="' + (u.rmb || '') + '" oninput="updUnit(' + u.id + ',\'rmb\',this.value)" class="mono" step="0.01" inputmode="decimal"></div>' +
+      '<div><span class="lbl">重量 kg</span><input type="number" placeholder="0" value="' + (u.weight || '') + '" oninput="updUnit(' + u.id + ',\'weight\',this.value)" class="mono" step="0.01" inputmode="decimal"></div>' +
+      '<div><span class="lbl">數量</span><input type="number" placeholder="1" value="' + u.qty + '" min="1" oninput="updUnit(' + u.id + ',\'qty\',this.value)" class="mono" inputmode="numeric"></div>' +
+      '</div>' +
+      '<div><span class="lbl">蝦皮售價 NT$</span><input type="number" placeholder="0" value="' + (u.sell || '') + '" oninput="updUnit(' + u.id + ',\'sell\',this.value)" class="mono" inputmode="numeric"></div>' +
+      '<div id="ur-' + u.id + '"></div></div>';
+  }).join('');
+  renderUnitSum();
+}
+
+function renderUnitResult(id) {
+  var u = units.find(function(i) { return i.id === id; });
+  var e = E('ur-' + id);
+  if (!u || !e) return;
+  var rate = E('rate').value;
+  if (!u.rmb || !rate) { e.innerHTML = ''; return; }
+  var c = calcUnit(u, rate);
+  var qty = parseInt(u.qty) || 1;
+  var ps = 'display:inline-flex;align-items:center;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;font-family:var(--mono)';
+  var pills = '<span style="background:rgba(255,255,255,.05);color:#e8e4f0;' + ps + '">成本 NT$' + c.cTWD.toFixed(0) + '</span> ' +
+    '<span style="background:rgba(255,255,255,.05);color:#e8e4f0;' + ps + '">運費 NT$' + c.sTWD.toFixed(0) + '</span> ';
+  if (u.sell) pills += '<span style="background:var(--ye-d);color:var(--ye);' + ps + '">手續費 NT$' + c.fee.toFixed(0) + '</span> ';
+  pills += '<span style="background:var(--or-d);color:var(--or);' + ps + '">總成本 NT$' + c.total.toFixed(0) + '</span> ';
+  pills += '<span style="background:var(--pu-d);color:var(--pu);' + ps + '">建議售價 NT$' + c.suggested + '</span>';
+  if (u.sell) {
+    var pc = c.profit >= 0 ? 'var(--gr)' : 'var(--re)';
+    var pb = c.profit >= 0 ? 'var(--gr-d)' : 'var(--re-d)';
+    var mc = c.margin >= 20 ? 'var(--gr)' : c.margin >= 0 ? 'var(--ye)' : 'var(--re)';
+    var mb = c.margin >= 20 ? 'var(--gr-d)' : c.margin >= 0 ? 'var(--ye-d)' : 'var(--re-d)';
+    pills += ' <span style="background:' + pb + ';color:' + pc + ';' + ps + '">' + (c.profit >= 0 ? '▲' : '▼') + ' 毛利 NT$' + c.profit.toFixed(0) + '</span>' +
+      ' <span style="background:' + mb + ';color:' + mc + ';' + ps + '">' + c.margin.toFixed(1) + '%</span>';
+    if (qty > 1) pills += ' <span style="background:var(--bl-d);color:var(--bl);' + ps + '">x' + qty + ' 總毛利 NT$' + c.totalProfit.toFixed(0) + '</span>';
+  }
+  e.innerHTML = '<div style="border-top:1px solid var(--bd);padding-top:10px;margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">' + pills + '</div>';
+}
+
+function renderUnitSum() {
+  var rate = E('rate').value;
+  var valid = units.filter(function(i) { return i.name || i.rmb; });
+  var e = E('unit-sum');
+  if (!valid.length || !rate) { e.style.display = 'none'; return; }
+  var tc = 0, tp = 0;
+  valid.forEach(function(u) { var c = calcUnit(u, rate), qty = parseInt(u.qty) || 1; tc += c.total * qty; tp += c.totalProfit; });
+  e.style.display = 'block';
+  E('u-tc').textContent = 'NT$' + tc.toFixed(0);
+  var pe = E('u-tp');
+  pe.textContent = (tp >= 0 ? '▲' : '▼') + ' NT$' + Math.abs(tp).toFixed(0);
+  pe.className = 'mono ' + (tp >= 0 ? 'pos' : 'neg');
+  pe.style.cssText = 'font-size:20px;font-weight:800';
+}
+
+function clearUnit() { units = []; uId = 0; addUnit(); }
+
+// ── Save Record ───────────────────────────────────────
+function saveRec(m) {
+  var rate = E('rate').value;
+  if (!rate) { toast('請先填入匯率', 'err'); return; }
+  var rec;
+  if (m === 'batch') {
+    var validP = prods.filter(function(p) {
+      return p.specs.some(function(s) { return s.rmb && parseInt(s.perBox) > 0 && parseInt(s.boxes) > 0; });
+    });
+    if (!validP.length) { toast('請至少填入一個規格的成本和數量', 'err'); return; }
+    rec = {
+      id: Date.now(), mode: 'batch',
+      name: E('batch-name').value || '整批進貨 ' + new Date().toLocaleDateString('zh-TW'),
+      date: new Date().toISOString().split('T')[0],
+      rate: parseFloat(rate),
+      prodList: validP.map(function(p) {
+        return { name: p.name, specs: p.specs.map(function(s) { return Object.assign({}, s); }) };
+      })
+    };
     clearBatch();
   } else {
-    const valid=unitItems.filter(i=>i.name&&i.rmb);
-    if(!valid.length){showToast('請至少填入一筆商品','err');return;}
-    rec={id:Date.now(),mode:'unit',
-      name:name||`單品進貨 ${new Date().toLocaleDateString('zh-TW')}`,
-      date:new Date().toISOString().split('T')[0],
-      rate:parseFloat(rate),items:valid.map(i=>({...i}))};
+    var valid2 = units.filter(function(u) { return u.name && u.rmb; });
+    if (!valid2.length) { toast('請至少填入一筆商品', 'err'); return; }
+    rec = {
+      id: Date.now(), mode: 'unit',
+      name: E('batch-name').value || '單品進貨 ' + new Date().toLocaleDateString('zh-TW'),
+      date: new Date().toISOString().split('T')[0],
+      rate: parseFloat(rate),
+      items: valid2.map(function(u) { return Object.assign({}, u); })
+    };
     clearUnit();
   }
-  calcBatches.unshift(rec);
-  document.getElementById('batch-name').value='';
-  saveAll(); renderHistory(); showToast('✅ 批次已儲存');
+  batches.unshift(rec);
+  E('batch-name').value = '';
+  saveAll();
+  toast('批次已儲存');
 }
 
-// ── History ───────────────────────────────────────
-function renderHistory(){
-  const list=document.getElementById('history-list');
-  document.getElementById('hist-count').textContent=`共 ${calcBatches.length} 筆`;
-  document.getElementById('hist-export-btn').style.display=calcBatches.length>0?'inline-flex':'none';
-  if(!calcBatches.length){list.innerHTML=`<div style="text-align:center;padding:50px 20px;color:var(--mu)"><div style="font-size:36px;margin-bottom:10px">📭</div><div>還沒有記錄</div></div>`;return;}
-  list.innerHTML=calcBatches.map(b=>{
-    let pills='',detail='';
-    if(b.mode==='batch'){
-      const r=b.rate,qty=b.qty,rmb=b.rmb,w=parseFloat(b.weight)||0,sell=parseFloat(b.sell)||0;
-      const uc=(rmb/qty)*r,us=(w*SHIPPING*r)/qty,fee=sell*FEE_RATE,total=uc+us+(sell?fee:0),profit=sell?sell-total:0;
-      const totalCostTWD=(uc+us)*qty;
-      pills=`<span class="pill" style="background:rgba(255,255,255,.05);color:#e8e4f0;font-size:10px">成本 NT$${totalCostTWD.toFixed(0)}</span>`;
-      if(sell)pills+=` <span class="pill" style="background:${profit>=0?'var(--gr-d)':'var(--re-d)'};color:${profit>=0?'var(--gr)':'var(--re)'};font-size:10px">${profit>=0?'▲':'▼'} NT$${(profit*qty).toFixed(0)}</span>`;
-      detail=`<div style="font-size:12px;line-height:2;color:var(--mu)">
-        ${b.productName}　${b.variantKey?`<span class="mono" style="color:var(--or);font-size:11px">${b.variantKey}</span>　`:''}
-        ${b.perBox&&b.boxes?`${b.perBox}件/箱×${b.boxes}箱　`:''}數量：${qty}件　重：${b.weight}kg　¥${rmb}　匯率：${b.rate}<br>
-        單件成本 NT$${total.toFixed(1)}　${sell?`售價 NT$${sell}　利潤 <span style="color:${profit>=0?'var(--gr)':'var(--re)'}">${profit>=0?'▲':'▼'} NT$${profit.toFixed(1)}</span>`:''}
-      </div>`;
+// ── History ───────────────────────────────────────────
+function renderHist() {
+  var list = E('hist-list');
+  E('hist-cnt').textContent = '共 ' + batches.length + ' 筆';
+  E('hist-exp').style.display = batches.length > 0 ? 'inline-flex' : 'none';
+  if (!batches.length) {
+    list.innerHTML = '<div style="text-align:center;padding:50px 20px;color:var(--mu)"><div style="font-size:36px;margin-bottom:10px">📭</div><div>還沒有記錄</div></div>';
+    return;
+  }
+  list.innerHTML = batches.map(function(b) {
+    var pills = '', detail = '';
+    if (b.mode === 'batch') {
+      var rate = b.rate, tc = 0, tp = 0, hasP = false;
+      var pl = b.prodList || [];
+      pl.forEach(function(p) {
+        p.specs.forEach(function(s) {
+          var c = calcSpec(s, rate);
+          if (c && c.qty > 0) { tc += c.total * c.qty; if (c.profit !== null) { tp += c.profit * c.qty; hasP = true; } }
+        });
+      });
+      pills = '<span style="background:rgba(255,255,255,.05);color:#e8e4f0;display:inline-flex;padding:3px 8px;border-radius:12px;font-size:10px;font-family:var(--mono)">成本 NT$' + tc.toFixed(0) + '</span>';
+      if (hasP) pills += ' <span style="background:' + (tp >= 0 ? 'var(--gr-d)' : 'var(--re-d)') + ';color:' + (tp >= 0 ? 'var(--gr)' : 'var(--re)') + ';display:inline-flex;padding:3px 8px;border-radius:12px;font-size:10px;font-family:var(--mono)">' + (tp >= 0 ? '▲' : '▼') + ' NT$' + Math.abs(tp).toFixed(0) + '</span>';
+      detail = pl.map(function(p) {
+        var specRows = p.specs.map(function(s) {
+          var c = calcSpec(s, rate);
+          var qty = c ? c.qty : 0;
+          return '<div style="background:var(--s3);border-radius:8px;padding:10px;margin-bottom:6px;font-size:12px;margin-left:10px">' +
+            '<strong>' + (s.name || '規格') + '</strong>' + (s.vKey ? ' <span style="font-family:var(--mono);font-size:10px;color:var(--or)">' + s.vKey + '</span>' : '') +
+            '<br><span style="color:var(--mu)">¥' + s.rmb + '/件 箱重' + s.boxW + 'kg ' + s.perBox + '件/箱x' + s.boxes + '箱=' + qty + '件</span>' +
+            (c ? '<br>單件成本 NT$' + c.total.toFixed(1) + ' 建議售價 <span style="color:var(--pu)">NT$' + c.suggested + '</span>' +
+              (c.profit !== null ? ' 毛利 <span style="color:' + (c.profit >= 0 ? 'var(--gr)' : 'var(--re)') + '">' + (c.profit >= 0 ? '▲' : '▼') + ' NT$' + c.profit.toFixed(1) + '</span>' : '') : '') +
+            '</div>';
+        }).join('');
+        return '<div style="font-size:13px;font-weight:700;margin-bottom:6px;color:#e8e4f0">' + (p.name || '未命名商品') + '</div>' + specRows;
+      }).join('<div class="divider"></div>');
     } else {
-      let tc=0,tp=0;
-      b.items.forEach(item=>{const c=calcUnit(item,b.rate),qty=parseInt(item.qty)||1;tc+=c.total*qty;tp+=c.totalProfit;});
-      pills=`<span class="pill" style="background:rgba(255,255,255,.05);color:#e8e4f0;font-size:10px">成本 NT$${tc.toFixed(0)}</span> <span class="pill" style="background:${tp>=0?'var(--gr-d)':'var(--re-d)'};color:${tp>=0?'var(--gr)':'var(--re)'};font-size:10px">${tp>=0?'▲':'▼'} NT$${tp.toFixed(0)}</span>`;
-      detail=b.items.map(item=>{const c=calcUnit(item,b.rate);return`<div style="font-size:12px;color:var(--mu);line-height:1.8">${item.name}：成本 NT$${c.total.toFixed(0)}${item.sell?` / 利潤 <span style="color:${c.profit>=0?'var(--gr)':'var(--re)'}">${c.profit>=0?'▲':'▼'} NT$${c.profit.toFixed(0)}</span>`:''}</div>`;}).join('');
+      var tc2 = 0, tp2 = 0;
+      b.items.forEach(function(u) { var c = calcUnit(u, b.rate), qty = parseInt(u.qty) || 1; tc2 += c.total * qty; tp2 += c.totalProfit; });
+      pills = '<span style="background:rgba(255,255,255,.05);color:#e8e4f0;display:inline-flex;padding:3px 8px;border-radius:12px;font-size:10px;font-family:var(--mono)">成本 NT$' + tc2.toFixed(0) + '</span>' +
+        ' <span style="background:' + (tp2 >= 0 ? 'var(--gr-d)' : 'var(--re-d)') + ';color:' + (tp2 >= 0 ? 'var(--gr)' : 'var(--re)') + ';display:inline-flex;padding:3px 8px;border-radius:12px;font-size:10px;font-family:var(--mono)">' + (tp2 >= 0 ? '▲' : '▼') + ' NT$' + Math.abs(tp2).toFixed(0) + '</span>';
+      detail = b.items.map(function(u) {
+        var c = calcUnit(u, b.rate);
+        return '<div style="font-size:12px;color:var(--mu);line-height:1.8">' + u.name + '：成本 NT$' + c.total.toFixed(0) + ' 建議售價 <span style="color:var(--pu)">NT$' + c.suggested + '</span>' +
+          (u.sell ? ' 毛利 <span style="color:' + (c.profit >= 0 ? 'var(--gr)' : 'var(--re)') + '">' + (c.profit >= 0 ? '▲' : '▼') + ' NT$' + c.profit.toFixed(0) + '</span>' : '') + '</div>';
+      }).join('');
     }
-    return`<div class="bcard">
-      <div class="bhdr" onclick="toggleBatch(${b.id})">
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:700;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${b.name}</div>
-          <div style="font-size:11px;color:var(--mu);font-family:var(--mono)">${b.date} · 匯率 ${b.rate} · ${b.mode==='batch'?'整批':'單品'}</div>
-        </div>
-        <div style="display:flex;gap:5px;align-items:center;flex-shrink:0">
-          ${pills}
-          <button onclick="event.stopPropagation();deleteHistory(${b.id})" style="background:none;border:none;color:var(--mu);font-size:15px;cursor:pointer;padding:2px 4px">🗑</button>
-          <span id="barr-${b.id}" style="color:var(--mu);font-size:11px">▼</span>
-        </div>
-      </div>
-      <div id="bdetail-${b.id}" class="bdetail"><div class="divider" style="margin-top:0"></div>${detail}</div>
-    </div>`;
+    return '<div class="bcard">' +
+      '<div class="bhdr" onclick="togB(' + b.id + ')">' +
+      '<div style="flex:1;min-width:0">' +
+      '<div style="font-weight:700;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + b.name + '</div>' +
+      '<div style="font-size:11px;color:var(--mu);font-family:var(--mono)">' + b.date + ' · 匯率 ' + b.rate + ' · ' + (b.mode === 'batch' ? '整批' : '單品') + '</div>' +
+      '</div>' +
+      '<div style="display:flex;gap:5px;align-items:center;flex-shrink:0">' +
+      pills +
+      '<button onclick="event.stopPropagation();delBatch(' + b.id + ')" style="background:none;border:none;color:var(--mu);font-size:15px;cursor:pointer;padding:2px 4px">🗑</button>' +
+      '<span id="ba-' + b.id + '" style="color:var(--mu);font-size:11px">▼</span>' +
+      '</div></div>' +
+      '<div id="bd-' + b.id + '" class="bdetail"><div class="divider" style="margin-top:0"></div>' + detail + '</div>' +
+      '</div>';
   }).join('');
 }
-function toggleBatch(id){const el=document.getElementById(`bdetail-${id}`),arr=document.getElementById(`barr-${id}`);if(el){el.classList.toggle('open');arr.textContent=el.classList.contains('open')?'▲':'▼';}}
-function deleteHistory(id){calcBatches=calcBatches.filter(b=>b.id!==id);saveAll();renderHistory();showToast('已刪除','warn');}
 
-function exportHistoryCSV(){
-  const rows=[['批次名稱','日期','匯率','類型','商品名稱','商品ID_規格ID','箱數','每箱','總數量','總重','總金額(¥)','售價','單件成本','單件利潤','利潤率%']];
-  calcBatches.forEach(b=>{
-    if(b.mode==='batch'){
-      const r=b.rate,qty=b.qty,rmb=b.rmb,w=parseFloat(b.weight)||0,sell=parseFloat(b.sell)||0;
-      const uc=(rmb/qty)*r,us=(w*SHIPPING*r)/qty,fee=sell*FEE_RATE,total=uc+us+(sell?fee:0);
-      const profit=sell?sell-total:0,margin=sell>0?(profit/sell)*100:0;
-      rows.push([b.name,b.date,b.rate,'整批',b.productName,b.variantKey||'',b.boxes||'',b.perBox||'',qty,b.weight||0,rmb,sell||'',total.toFixed(1),sell?profit.toFixed(1):'',sell?margin.toFixed(1):'']);
-    } else {
-      b.items.forEach(item=>{const c=calcUnit(item,b.rate);rows.push([b.name,b.date,b.rate,'單品',item.name,'','','',item.qty||1,item.weight||0,item.rmb,item.sell||'',c.total.toFixed(0),item.sell?c.profit.toFixed(0):'',item.sell?c.margin.toFixed(1):'']);});
-    }
-  });
-  dlCSV(rows,'進貨記錄.csv'); showToast('📥 已匯出');
+function togB(id) {
+  var e = E('bd-' + id), a = E('ba-' + id);
+  if (e) { e.classList.toggle('open'); a.textContent = e.classList.contains('open') ? '▲' : '▼'; }
 }
 
-// ── XLSX Report ───────────────────────────────────
-function handleFileUpload(event) {
-  const file=event.target.files[0]; if(!file) return;
-  const status=document.getElementById('upload-status');
-  status.style.display='block'; status.style.background='var(--bl-d)'; status.style.color='var(--bl)';
-  status.textContent=`📂 讀取中：${file.name}…`;
-  const reader=new FileReader();
-  reader.onload=function(e){
-    try{
-      const wb=XLSX.read(new Uint8Array(e.target.result),{type:'array'});
-      const ws=wb.Sheets[wb.SheetNames[0]];
-      const rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
-      processReport(rows, file.name);
-    }catch(err){status.style.background='var(--re-d)';status.style.color='var(--re)';status.textContent=`❌ 讀取失敗：${err.message}`;}
+function delBatch(id) {
+  batches = batches.filter(function(b) { return b.id !== id; });
+  saveAll(); renderHist(); toast('已刪除', 'warn');
+}
+
+function exportHist() {
+  var rows = [['批次名稱', '日期', '匯率', '類型', '商品名稱', '規格名稱', '商品ID_規格ID', '箱重kg', '每箱件數', '箱數', '總數量', '單件人民幣', '單件成本NT$', '建議售價NT$', '售價', '毛利', '毛利率%']];
+  batches.forEach(function(b) {
+    if (b.mode === 'batch') {
+      var pl = b.prodList || [];
+      pl.forEach(function(p) {
+        p.specs.forEach(function(s) {
+          var c = calcSpec(s, b.rate);
+          rows.push([b.name, b.date, b.rate, '整批', p.name || '', s.name, s.vKey || '', s.boxW, s.perBox, s.boxes, c ? c.qty : 0, s.rmb, c ? c.total.toFixed(1) : '', c ? c.suggested : '', s.sell || '', c && c.profit !== null ? c.profit.toFixed(1) : '', c && c.margin !== null ? c.margin.toFixed(1) : '']);
+        });
+      });
+    } else {
+      b.items.forEach(function(u) {
+        var c = calcUnit(u, b.rate);
+        rows.push([b.name, b.date, b.rate, '單品', '', u.name, '', '', '', '', u.qty || 1, u.rmb, c.total.toFixed(0), c.suggested, u.sell || '', u.sell ? c.profit.toFixed(0) : '', u.sell ? c.margin.toFixed(1) : '']);
+      });
+    }
+  });
+  dlCSV(rows, '進貨記錄.csv');
+  toast('已匯出');
+}
+
+// ── Report ────────────────────────────────────────────
+function handleUpload(event) {
+  var file = event.target.files[0];
+  if (!file) return;
+  var st = E('up-status');
+  st.style.display = 'block'; st.style.background = 'var(--bl-d)'; st.style.color = 'var(--bl)';
+  st.textContent = '讀取中…';
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var wb = XLSX.read(new Uint8Array(e.target.result), { type: 'array' });
+      processRpt(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header: 1, defval: '' }), file.name);
+    } catch(err) {
+      st.style.background = 'var(--re-d)'; st.style.color = 'var(--re)';
+      st.textContent = '讀取失敗：' + err.message;
+    }
   };
   reader.readAsArrayBuffer(file);
 }
 
-function processReport(rows, filename) {
-  const status=document.getElementById('upload-status');
-  // Find header row
-  let hi=-1;
-  for(let i=0;i<Math.min(5,rows.length);i++){
-    if(rows[i].some(c=>String(c).includes('訂單')||String(c).includes('Order'))){hi=i;break;}
+function processRpt(rows, filename) {
+  var st = E('up-status');
+  var hi = -1;
+  for (var i = 0; i < Math.min(5, rows.length); i++) {
+    if (rows[i].some(function(c) { return String(c).indexOf('訂單') >= 0 || String(c).indexOf('Order') >= 0; })) { hi = i; break; }
   }
-  if(hi===-1) hi=0;
-  const headers=rows[hi].map(h=>String(h).trim());
-
-  // Column detection — prefer header match, fallback to known indices
-  const fc=(kws,def)=>{const i=headers.findIndex(h=>kws.some(k=>h.includes(k)));return i>=0?i:def;};
-  const colAC = fc(['蝦皮商品編碼','商品ID_規格','variantId'],28); // AC = index 28
-  const colK  = fc(['買家總支付金額','支付金額'],10);              // K  = index 10
-  const colAH = fc(['數量','qty'],33);                             // AH = index 33
-  const colY  = fc(['商品名稱'],24);                               // Y  = index 24
-  const colAA = fc(['商品選項名稱','規格名'],26);                  // AA = index 26
-
-  // Build product cost map: variantId -> cost
-  const costMap={};
-  products.forEach(p=>{ costMap[p.variantId]=p; });
-
-  const aggr={};
-  let totalOrders=0;
-  for(let i=hi+1;i<rows.length;i++){
-    const row=rows[i];
-    if(!row||row.every(c=>c===''||c===null)) continue;
-    const acVal=String(row[colAC]||'').trim();
-    if(!acVal||acVal==='蝦皮商品編碼') continue;
-    // AC col format: shopeeId_variantId  e.g. 829585737_1444341581
-    const parts=acVal.split('_');
-    const variantId=parts.length>=2?parts[parts.length-1]:'';
-    const shopeeId=parts.length>=2?parts[0]:'';
-    const qty=parseInt(row[colAH])||1;
-    const revenue=parseFloat(row[colK])||0;
-    const pName=String(row[colY]||'').substring(0,40);
-    const variant=String(row[colAA]||'');
-    const key=acVal; // use full AC value as key
-    if(!aggr[key]) aggr[key]={acVal,shopeeId,variantId,name:pName,variant,qty:0,revenue:0};
-    aggr[key].qty+=qty; aggr[key].revenue+=revenue;
-    totalOrders++;
+  if (hi === -1) hi = 0;
+  var headers = rows[hi].map(function(h) { return String(h).trim(); });
+  function fc(kws, def) {
+    var idx = headers.findIndex(function(h) { return kws.some(function(k) { return h.indexOf(k) >= 0; }); });
+    return idx >= 0 ? idx : def;
   }
+  var colAC = fc(['蝦皮商品編碼', '商品ID_規格'], 28);
+  var colK = fc(['買家總支付金額'], 10);
+  var colAH = fc(['數量'], 33);
+  var colY = fc(['商品名稱'], 24);
+  var colAA = fc(['商品選項名稱'], 26);
 
-  if(totalOrders===0){
-    status.style.background='var(--ye-d)';status.style.color='var(--ye)';
-    status.textContent='⚠️ 找不到訂單資料，請確認是否為蝦皮已完成訂單報表';return;
+  // Build cost map: vid -> spec
+  var cmap = {};
+  products.forEach(function(g) { g.specs.forEach(function(s) { cmap[s.vid] = s; }); });
+
+  var aggr = {}, total = 0;
+  for (var j = hi + 1; j < rows.length; j++) {
+    var row = rows[j];
+    if (!row || row.every(function(c) { return c === '' || c === null; })) continue;
+    var ac = String(row[colAC] || '').trim();
+    if (!ac || ac === '蝦皮商品編碼') continue;
+    var parts = ac.split('_');
+    var vid = parts.length >= 2 ? parts[parts.length - 1] : '';
+    var qty = parseInt(row[colAH]) || 1;
+    var rev = parseFloat(row[colK]) || 0;
+    var pn = String(row[colY] || '').substring(0, 40);
+    var vn = String(row[colAA] || '');
+    if (!aggr[ac]) aggr[ac] = { ac: ac, vid: vid, name: pn, variant: vn, qty: 0, rev: 0 };
+    aggr[ac].qty += qty; aggr[ac].rev += rev; total++;
   }
-
-  const matched=[],unmatched=[];
-  Object.values(aggr).forEach(data=>{
-    const prod=costMap[data.variantId];
-    if(prod){
-      const totalCost=prod.cost*data.qty, grossProfit=data.revenue-totalCost;
-      const margin=data.revenue>0?(grossProfit/data.revenue)*100:0;
-      matched.push({...data, prodName:prod.name, cost:prod.cost, totalCost, grossProfit, margin});
+  if (total === 0) {
+    st.style.background = 'var(--ye-d)'; st.style.color = 'var(--ye)';
+    st.textContent = '找不到訂單資料';
+    return;
+  }
+  var matched = [], unmatched = [];
+  Object.keys(aggr).forEach(function(k) {
+    var d = aggr[k], s = cmap[d.vid];
+    if (s) {
+      var tc = s.cost * d.qty, gp = d.rev - tc;
+      matched.push(Object.assign({}, d, { pname: s.sname || d.name, cost: s.cost, tc: tc, gp: gp, margin: d.rev > 0 ? (gp / d.rev) * 100 : 0 }));
     } else {
-      unmatched.push(data);
+      unmatched.push(d);
     }
   });
-  matched.sort((a,b)=>b.revenue-a.revenue);
-
-  // Title from filename
-  const dm=filename.match(/(\d{8})_(\d{8})/);
-  let title='銷售報表';
-  if(dm){const d=dm[1];title=`${d.substring(0,4)}年${parseInt(d.substring(4,6))}月 銷售報表`;}
-
-  reportData={matched,unmatched,totalOrders,title};
-  renderReport();
-  status.style.background='var(--gr-d)';status.style.color='var(--gr)';
-  status.innerHTML=`✅ 讀取 ${totalOrders} 筆訂單　對應成功 <strong>${matched.length}</strong> 個規格　未對應 <strong style="color:var(--ye)">${unmatched.length}</strong> 個`;
+  matched.sort(function(a, b) { return b.rev - a.rev; });
+  var dm = filename.match(/(\d{8})_(\d{8})/);
+  var title = '銷售報表';
+  if (dm) { var dd = dm[1]; title = dd.substring(0, 4) + '年' + parseInt(dd.substring(4, 6)) + '月 銷售報表'; }
+  rptData = { matched: matched, unmatched: unmatched, total: total, title: title };
+  renderRpt();
+  st.style.background = 'var(--gr-d)'; st.style.color = 'var(--gr)';
+  st.innerHTML = '讀取 ' + total + ' 筆　對應成功 <strong>' + matched.length + '</strong>　未對應 <strong style="color:var(--ye)">' + unmatched.length + '</strong>';
 }
 
-function renderReport(){
-  if(!reportData) return;
-  const{matched,unmatched,totalOrders,title}=reportData;
-  document.getElementById('report-result').style.display='block';
-  document.getElementById('report-title').textContent=title;
-  document.getElementById('report-sub').textContent=`共 ${totalOrders} 筆訂單`;
-
-  const totalRev=matched.reduce((s,r)=>s+r.revenue,0)+unmatched.reduce((s,r)=>s+r.revenue,0);
-  const mRev=matched.reduce((s,r)=>s+r.revenue,0);
-  const tCost=matched.reduce((s,r)=>s+r.totalCost,0);
-  const tProfit=matched.reduce((s,r)=>s+r.grossProfit,0);
-  const avgM=mRev>0?(tProfit/mRev)*100:0;
-
-  document.getElementById('report-summary-cards').innerHTML=[
-    {label:'總銷售額',val:`NT$${totalRev.toFixed(0)}`,c:'var(--bl)'},
-    {label:'已對應銷售額',val:`NT$${mRev.toFixed(0)}`,c:'var(--or)'},
-    {label:'總進貨成本',val:`NT$${tCost.toFixed(0)}`,c:'var(--mu)'},
-    {label:'毛利',val:`${tProfit>=0?'▲':'▼'} NT$${Math.abs(tProfit).toFixed(0)}`,c:tProfit>=0?'var(--gr)':'var(--re)'},
-    {label:'毛利率',val:`${avgM.toFixed(1)}%`,c:avgM>=20?'var(--gr)':avgM>=10?'var(--ye)':'var(--re)'},
-  ].map(s=>`<div class="sum-card"><div class="lbl">${s.label}</div><div class="val" style="color:${s.c}">${s.val}</div></div>`).join('');
-
-  const nm=document.getElementById('no-match-warning');
-  if(unmatched.length>0){
-    nm.style.display='block';
-    document.getElementById('no-match-list').innerHTML=unmatched.map(u=>
-      `<div><span class="mono" style="color:var(--ye)">${u.acVal}</span> <span style="color:var(--mu)">（${u.name.substring(0,20)}… / ${u.variant.substring(0,20)}）</span> → 規格ID: <span class="mono">${u.variantId}</span></div>`
-    ).join('');
-  }else nm.style.display='none';
-
-  const rows=[
-    ...matched.map(r=>`<tr>
-      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.prodName}">${r.prodName}<br><span style="font-size:10px;color:var(--mu)">${r.variant.substring(0,30)}</span></td>
-      <td><span class="mono" style="font-size:10px;color:var(--mu)">${r.variantId}</span></td>
-      <td>${r.qty}</td>
-      <td>NT$${r.revenue.toFixed(0)}</td>
-      <td>NT$${r.cost.toFixed(0)}</td>
-      <td>NT$${r.totalCost.toFixed(0)}</td>
-      <td style="color:${r.grossProfit>=0?'var(--gr)':'var(--re)'}"><strong>${r.grossProfit>=0?'▲':'▼'} NT$${Math.abs(r.grossProfit).toFixed(0)}</strong></td>
-      <td style="color:${r.margin>=20?'var(--gr)':r.margin>=10?'var(--ye)':'var(--re)'}">${r.margin.toFixed(1)}%</td>
-    </tr>`),
-    ...unmatched.map(r=>`<tr style="opacity:.55">
-      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.name.substring(0,30)}<br><span style="font-size:10px;color:var(--mu)">${r.variant.substring(0,30)}</span></td>
-      <td><span class="mono" style="font-size:10px;color:var(--ye)">${r.variantId}</span></td>
-      <td>${r.qty}</td>
-      <td>NT$${r.revenue.toFixed(0)}</td>
-      <td colspan="4" style="text-align:center;font-size:11px;color:var(--ye)">⚠️ 未設定成本 — 請至商品庫新增規格ID: ${r.variantId}</td>
-    </tr>`)
-  ].join('');
-  document.getElementById('report-table-body').innerHTML=rows;
+function renderRpt() {
+  if (!rptData) return;
+  var m = rptData.matched, um = rptData.unmatched;
+  E('rpt-result').style.display = 'block';
+  E('rpt-title').textContent = rptData.title;
+  E('rpt-sub').textContent = '共 ' + rptData.total + ' 筆訂單';
+  var tr = m.reduce(function(s, r) { return s + r.rev; }, 0) + um.reduce(function(s, r) { return s + r.rev; }, 0);
+  var mr = m.reduce(function(s, r) { return s + r.rev; }, 0);
+  var tc = m.reduce(function(s, r) { return s + r.tc; }, 0);
+  var gp = m.reduce(function(s, r) { return s + r.gp; }, 0);
+  var am = mr > 0 ? (gp / mr) * 100 : 0;
+  E('rpt-cards').innerHTML = [
+    { l: '總銷售額', v: 'NT$' + tr.toFixed(0), c: 'var(--bl)' },
+    { l: '已對應銷售額', v: 'NT$' + mr.toFixed(0), c: 'var(--or)' },
+    { l: '總進貨成本', v: 'NT$' + tc.toFixed(0), c: 'var(--mu)' },
+    { l: '總毛利', v: (gp >= 0 ? '▲' : '▼') + ' NT$' + Math.abs(gp).toFixed(0), c: gp >= 0 ? 'var(--gr)' : 'var(--re)' },
+    { l: '毛利率', v: am.toFixed(1) + '%', c: am >= 20 ? 'var(--gr)' : am >= 10 ? 'var(--ye)' : 'var(--re)' }
+  ].map(function(s) { return '<div class="sum-card"><div class="lbl">' + s.l + '</div><div class="val" style="color:' + s.c + '">' + s.v + '</div></div>'; }).join('');
+  var wn = E('rpt-warn');
+  if (um.length > 0) {
+    wn.style.display = 'block';
+    E('rpt-warn-list').innerHTML = um.map(function(u) {
+      return '<div><span style="font-family:var(--mono);color:var(--ye)">' + u.ac + '</span> ' + u.name.substring(0, 20) + '… 規格ID: <span style="font-family:var(--mono)">' + u.vid + '</span></div>';
+    }).join('');
+  } else {
+    wn.style.display = 'none';
+  }
+  E('rpt-body').innerHTML = m.map(function(r) {
+    return '<tr>' +
+      '<td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + r.pname + '<br><span style="font-size:10px;color:var(--mu)">' + r.variant.substring(0, 30) + '</span></td>' +
+      '<td><span style="font-family:var(--mono);font-size:10px;color:var(--mu)">' + r.vid + '</span></td>' +
+      '<td>' + r.qty + '</td>' +
+      '<td>NT$' + r.rev.toFixed(0) + '</td>' +
+      '<td>NT$' + r.cost.toFixed(0) + '</td>' +
+      '<td>NT$' + r.tc.toFixed(0) + '</td>' +
+      '<td style="color:' + (r.gp >= 0 ? 'var(--gr)' : 'var(--re)') + '"><strong>' + (r.gp >= 0 ? '▲' : '▼') + ' NT$' + Math.abs(r.gp).toFixed(0) + '</strong></td>' +
+      '<td style="color:' + (r.margin >= 20 ? 'var(--gr)' : r.margin >= 10 ? 'var(--ye)' : 'var(--re)') + '">' + r.margin.toFixed(1) + '%</td>' +
+      '</tr>';
+  }).concat(um.map(function(r) {
+    return '<tr style="opacity:.55">' +
+      '<td>' + r.name.substring(0, 30) + '</td>' +
+      '<td><span style="font-family:var(--mono);font-size:10px;color:var(--ye)">' + r.vid + '</span></td>' +
+      '<td>' + r.qty + '</td>' +
+      '<td>NT$' + r.rev.toFixed(0) + '</td>' +
+      '<td colspan="4" style="text-align:center;font-size:11px;color:var(--ye)">未設定成本</td>' +
+      '</tr>';
+  })).join('');
 }
 
-function clearReport(){
-  reportData=null;
-  document.getElementById('report-result').style.display='none';
-  document.getElementById('upload-status').style.display='none';
-  const fi=document.querySelector('#upload-zone input');if(fi)fi.value='';
-}
-function exportReportCSV(){
-  if(!reportData) return;
-  const rows=[['商品名稱','規格','規格ID','銷售量','銷售額(NT$)','單件成本(NT$)','總成本(NT$)','毛利(NT$)','毛利率%']];
-  reportData.matched.forEach(r=>rows.push([r.prodName,r.variant,r.variantId,r.qty,r.revenue.toFixed(0),r.cost.toFixed(0),r.totalCost.toFixed(0),r.grossProfit.toFixed(0),r.margin.toFixed(1)]));
-  reportData.unmatched.forEach(r=>rows.push([r.name,r.variant,r.variantId,r.qty,r.revenue.toFixed(0),'未設定','—','—','—']));
-  dlCSV(rows,`${reportData.title}.csv`); showToast('📥 已匯出');
+function clearRpt() { rptData = null; E('rpt-result').style.display = 'none'; E('up-status').style.display = 'none'; }
+
+function exportRpt() {
+  if (!rptData) return;
+  var rows = [['商品名稱', '規格', '規格ID', '銷售量', '銷售額', '單件成本', '總成本', '毛利', '毛利率%']];
+  rptData.matched.forEach(function(r) { rows.push([r.pname, r.variant, r.vid, r.qty, r.rev.toFixed(0), r.cost.toFixed(0), r.tc.toFixed(0), r.gp.toFixed(0), r.margin.toFixed(1)]); });
+  rptData.unmatched.forEach(function(r) { rows.push([r.name, r.variant, r.vid, r.qty, r.rev.toFixed(0), '未設定', '-', '-', '-']); });
+  dlCSV(rows, rptData.title + '.csv');
+  toast('已匯出');
 }
 
-// ── Helpers ───────────────────────────────────────
-function s(id,val){const e=document.getElementById(id);if(e)e.textContent=val;}
-function dlCSV(rows,filename){
-  const csv='\uFEFF'+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));a.download=filename;a.click();
-}
-function showToast(msg,type='ok'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.style.background=type==='err'?'var(--re)':type==='warn'?'#c17f24':'#1e3a2f';
-  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);
-}
-function checkInstallHint(){
-  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent),isAndroid=/android/i.test(navigator.userAgent);
-  if((isIOS||isAndroid)&&!window.matchMedia('(display-mode: standalone)').matches&&!window.navigator.standalone)
-    document.getElementById('install-banner').classList.add('show');
+// ── Install hint ──────────────────────────────────────
+function checkInstall() {
+  var iOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var android = /android/i.test(navigator.userAgent);
+  if ((iOS || android) && !window.matchMedia('(display-mode: standalone)').matches && !window.navigator.standalone) {
+    E('inst-banner').classList.add('show');
+  }
 }
 
-// ── Init ──────────────────────────────────────────
-loadData(); renderProducts(); updateFormulaBar(); checkInstallHint();
+// ── Init ─────────────────────────────────────────────
+loadAll();
+renderProds();
+addProd();
+checkInstall();
 </script>
 
 </body>
